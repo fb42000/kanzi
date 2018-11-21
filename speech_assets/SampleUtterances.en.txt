@@ -106,6 +106,25 @@ Fullscreen fullscreen
 Fullscreen toggle fullscreen
 Fullscreen toggle visualizer
 Fullscreen visualizer
+Guide guide
+Guide show guide
+Guide guide dialog
+Guide guide window
+Guide guide
+Guide guide dialog
+Guide guide window
+Guide open guide
+Guide open guide dialog
+Guide open guide window
+Guide open guide
+Guide open guide dialog
+Guide open guide window
+Guide show guide
+Guide show guide dialog
+Guide show guide window
+Guide show guide
+Guide show guide dialog
+Guide show guide window
 Hibernate deep sleep
 Hibernate deep sleep system
 Hibernate hibernate
@@ -1405,6 +1424,62 @@ WatchNextEpisode play next episode of {Show}
 WatchNextEpisode play the next episode of {Show}
 WatchNextEpisode watch next episode of {Show}
 WatchNextEpisode watch the next episode of {Show}
+WatchPVRBroadcast change channel to {Broadcast}
+WatchPVRBroadcast play broadcast {Broadcast}
+WatchPVRBroadcast play live t. v. broadcast {Broadcast}
+WatchPVRBroadcast play live t. v. program {Broadcast}
+WatchPVRBroadcast play program {Broadcast}
+WatchPVRBroadcast play t. v. broadcast {Broadcast}
+WatchPVRBroadcast play t. v. program {Broadcast}
+WatchPVRBroadcast play the broadcast {Broadcast}
+WatchPVRBroadcast play the live t. v. broadcast {Broadcast}
+WatchPVRBroadcast play the live t. v. program {Broadcast}
+WatchPVRBroadcast play the program {Broadcast}
+WatchPVRBroadcast play the t. v. broadcast {Broadcast}
+WatchPVRBroadcast play the t. v. program {Broadcast}
+WatchPVRBroadcast watch broadcast {Broadcast}
+WatchPVRBroadcast watch live t. v. broadcast {Broadcast}
+WatchPVRBroadcast watch live t. v. program {Broadcast}
+WatchPVRBroadcast watch program {Broadcast}
+WatchPVRBroadcast watch t. v. broadcast {Broadcast}
+WatchPVRBroadcast watch t. v. program {Broadcast}
+WatchPVRBroadcast watch the broadcast {Broadcast}
+WatchPVRBroadcast watch the live t. v. broadcast {Broadcast}
+WatchPVRBroadcast watch the live t. v. program {Broadcast}
+WatchPVRBroadcast watch the program {Broadcast}
+WatchPVRBroadcast watch the t. v. broadcast {Broadcast}
+WatchPVRBroadcast watch the t. v. program {Broadcast}
+WatchPVRChannel play channel {Channel}
+WatchPVRChannel change channel {Channel}
+WatchPVRChannel change to {Channel}
+WatchPVRChannel play live t. v. channel {Channel}
+WatchPVRChannel play live t. v. {Channel}
+WatchPVRChannel play p. v. r. channel {Channel}
+WatchPVRChannel play p. v. r. {Channel}
+WatchPVRChannel play t. v. channel {Channel}
+WatchPVRChannel play t. v. {Channel}
+WatchPVRChannel play the channel {Channel}
+WatchPVRChannel play the live t. v. channel {Channel}
+WatchPVRChannel play the live t. v. {Channel}
+WatchPVRChannel play the p. v. r. channel {Channel}
+WatchPVRChannel play the p. v. r. {Channel}
+WatchPVRChannel play the t. v. channel {Channel}
+WatchPVRChannel play the t. v. {Channel}
+WatchPVRChannel watch channel {Channel}
+WatchPVRChannel change channel {Channel}
+WatchPVRChannel watch live t. v. channel {Channel}
+WatchPVRChannel watch live t. v. {Channel}
+WatchPVRChannel watch p. v. r. channel {Channel}
+WatchPVRChannel watch p. v. r. {Channel}
+WatchPVRChannel watch t. v. channel {Channel}
+WatchPVRChannel watch t. v. {Channel}
+WatchPVRChannel watch the channel {Channel}
+WatchPVRChannel watch the live t. v. channel {Channel}
+WatchPVRChannel watch the live t. v. {Channel}
+WatchPVRChannel watch the p. v. r. channel {Channel}
+WatchPVRChannel watch the p. v. r. {Channel}
+WatchPVRChannel watch the t. v. channel {Channel}
+WatchPVRChannel watch the t. v. {Channel}
 WatchRandomEpisode play a random episode of {Show}
 WatchRandomEpisode play a random {Show} episode
 WatchRandomEpisode play a {Show} episode
