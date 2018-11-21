@@ -22,6 +22,7 @@ PageDown show more
 Select select
 Menu (/open/context) menu
 Info (/open/show) (info/information) (/dialog/window)
+Guide (/open/show) (guide/tvguide) (/dialog/window)
 
 ViewMovies (open/go to/show) movies
 ViewMovies (show/find/search for) {MovieGenre} movies
@@ -272,6 +273,11 @@ AddonGlobalSearch (find/search for) {Show}
 AddonGlobalSearch (find/search for) {Movie}
 AddonGlobalSearch (find/search for) {Album}
 AddonGlobalSearch (find/search for) {Artist}
+
+WatchPVRBroadcast (play/watch) (/the) (/t. v./live t. v.) (program/broadcast) {Broadcast}
+WatchPVRBroadcast change channel to {Broadcast}
+WatchPVRChannel (play/watch/) (/the) (p. v. r./t. v./live t. v.) (/channel) {Channel}
+WatchPVRChannel (play/watch/change) (/the/to) channel {Channel}
 
 AMAZON.HelpIntent what can (you do/i ask you)
 AMAZON.HelpIntent things to try

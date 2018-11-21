@@ -44,6 +44,10 @@ could_not_find_show: "Could not find a show named {{ heard_show }}"
 
 could_not_find_episode_show: "Could not find season {{ season }} episode {{ episode }} of {{ show_name }}"
 
+could_not_find_pvr_channel: "Could not find a PVR channel called {{ heard_pvr_channel }}"
+
+could_not_find_pvr_broadcast: "Could not find a current PVR broadcast called {{ heard_pvr_broadcast }}"
+
 could_not_find_musicvideo: "Could not find a music video called {{ heard_musicvideo }}"
 
 could_not_find_musicvideo_artist: "Could not find a music video called {{ heard_musicvideo }} by {{ heard_artist }}"
@@ -111,6 +115,8 @@ playing_action_episode_number: "{{ action }} season {{ season }} episode {{ epis
 playing_musicvideo: "Playing the music video {{ musicvideo_name }} by {{ artist_name }}"
 
 playing_empty: "Playing"
+
+playing_pvr_broadcast: "Playing {{ broadcast_name }} on {{ channel_name }}"
 
 resuming_empty: "Resuming"
 
@@ -384,6 +390,8 @@ shuffling_latest_album_card: "Shuffling latest album by {{ heard_artist }}"
 playing_song_card: "Playing song"
 
 playing_album_or_song: "Playing album or song"
+
+playing_pvr_channel: "Playing PVR channel"
 
 action_audio_playlist: "{{ action }} audio playlist"
 
