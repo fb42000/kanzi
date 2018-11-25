@@ -1,813 +1,1019 @@
 {
-  "intents": [
-    {
-      "intent": "RecommendVideo"
-    },
-    {
-      "intent": "RecommendAudio"
-    },
-    {
-      "intent": "RecommendMovie",
-      "slots": [
-        {
-          "name": "MovieGenre",
-          "type": "MOVIEGENRES"
+    "interactionModel": {
+        "languageModel": {
+            "invocationName": "my telly",
+            "intents": [
+                {
+                    "name": "PlayerSeekForward",
+                    "slots": [
+                        {
+                            "name": "ForwardDur",
+                            "type": "AMAZON.DURATION"
+                        }
+                    ],
+                    "samples": [
+                        "forward jump by {ForwardDur}",
+                        "forward step by {ForwardDur}",
+                        "jump by {ForwardDur}",
+                        "jump forward by {ForwardDur}",
+                        "jump forward {ForwardDur}",
+                        "jump forwards by {ForwardDur}",
+                        "jump forwards {ForwardDur}",
+                        "jump {ForwardDur}",
+                        "step by {ForwardDur}",
+                        "step forward by {ForwardDur}",
+                        "step forward {ForwardDur}",
+                        "step forwards by {ForwardDur}",
+                        "step forwards {ForwardDur}",
+                        "step {ForwardDur}"
+                    ]
+                },
+                {
+                    "name": "PlayerSeekBackward",
+                    "slots": [
+                        {
+                            "name": "BackwardDur",
+                            "type": "AMAZON.DURATION"
+                        }
+                    ],
+                    "samples": [
+                        "backward jump by {BackwardDur}",
+                        "backward step by {BackwardDur}",
+                        "backwards jump by {BackwardDur}",
+                        "backwards step by {BackwardDur}",
+                        "jump back by {BackwardDur}",
+                        "jump back {BackwardDur}",
+                        "jump backward by {BackwardDur}",
+                        "jump backward {BackwardDur}",
+                        "jump backwards by {BackwardDur}",
+                        "jump backwards {BackwardDur}",
+                        "step back by {BackwardDur}",
+                        "step back {BackwardDur}",
+                        "step backward by {BackwardDur}",
+                        "step backward {BackwardDur}",
+                        "step backwards by {BackwardDur}",
+                        "step backwards {BackwardDur}"
+                    ]
+                },
+                {
+                    "name": "PlayerSeekSmallForward",
+                    "slots": [],
+                    "samples": [
+                        "forward jump",
+                        "forward step",
+                        "jump forward",
+                        "jump forwards",
+                        "small forward jump",
+                        "small forward step",
+                        "small jump forward",
+                        "small jump forwards",
+                        "small step forward",
+                        "small step forwards",
+                        "step forward",
+                        "step forwards"
+                    ]
+                },
+                {
+                    "name": "PlayerSeekSmallBackward",
+                    "slots": [],
+                    "samples": [
+                        "back jump",
+                        "back step",
+                        "backward jump",
+                        "backward step",
+                        "backwards jump",
+                        "backwards step",
+                        "jump back",
+                        "jump backward",
+                        "jump backwards",
+                        "small back jump",
+                        "small back step",
+                        "small backward jump",
+                        "small backward step",
+                        "small backwards jump",
+                        "small backwards step",
+                        "small jump back",
+                        "small jump backward",
+                        "small jump backwards",
+                        "small step back",
+                        "small step backward",
+                        "small step backwards",
+                        "step back",
+                        "step backward",
+                        "step backwards"
+                    ]
+                },
+                {
+                    "name": "PlayerSeekBigForward",
+                    "slots": [],
+                    "samples": [
+                        "big forward jump",
+                        "big forward step",
+                        "big jump forward",
+                        "big jump forwards",
+                        "big step forward",
+                        "big step forwards",
+                        "large forward jump",
+                        "large forward step",
+                        "large jump forward",
+                        "large jump forwards",
+                        "large step forward",
+                        "large step forwards",
+                        "long forward jump",
+                        "long forward step",
+                        "long jump forward",
+                        "long jump forwards",
+                        "long step forward",
+                        "long step forwards"
+                    ]
+                },
+                {
+                    "name": "PlayerSeekBigBackward",
+                    "slots": [],
+                    "samples": [
+                        "big back jump",
+                        "big back step",
+                        "big backward jump",
+                        "big backward step",
+                        "big backwards jump",
+                        "big backwards step",
+                        "big jump back",
+                        "big jump backward",
+                        "big jump backwards",
+                        "big step back",
+                        "big step backward",
+                        "big step backwards",
+                        "large back jump",
+                        "large back step",
+                        "large backward jump",
+                        "large backward step",
+                        "large backwards jump",
+                        "large backwards step",
+                        "large jump back",
+                        "large jump backward",
+                        "large jump backwards",
+                        "large step back",
+                        "large step backward",
+                        "large step backwards",
+                        "long back jump",
+                        "long back step",
+                        "long backward jump",
+                        "long backward step",
+                        "long backwards jump",
+                        "long backwards step",
+                        "long jump back",
+                        "long jump backward",
+                        "long jump backwards",
+                        "long step back",
+                        "long step backward",
+                        "long step backwards"
+                    ]
+                },
+                {
+                    "name": "AMAZON.CancelIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StopIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NoIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.YesIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.NextIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PauseIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.PreviousIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ResumeIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.StartOverIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ShuffleOnIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.ShuffleOffIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.LoopOnIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.LoopOffIntent",
+                    "samples": []
+                },
+                {
+                    "name": "AMAZON.HelpIntent",
+                    "samples": [
+                        "things to try",
+                        "what can i ask you",
+                        "what can you do"
+                    ]
+                },
+                {
+                    "name": "PlayMedia",
+                    "slots": [
+                        {
+                            "name": "Movie",
+                            "type": "MOVIES"
+                        }
+                    ],
+                    "samples": [
+                        "play {Movie}"
+                    ]
+                },
+                {
+                    "name": "ListenToArtist",
+                    "slots": [
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        },
+                        {
+                            "name": "MusicGenre",
+                            "type": "MUSICGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "listen to artist {Artist}",
+                        "listen to music by {Artist}",
+                        "listen to {MusicGenre} artist {Artist}",
+                        "listen to {MusicGenre} music by {Artist}",
+                        "play artist {Artist}",
+                        "play music by {Artist}",
+                        "play {MusicGenre} artist {Artist}",
+                        "play {MusicGenre} music by {Artist}",
+                        "shuffle artist {Artist}",
+                        "shuffle music by {Artist}",
+                        "shuffle {MusicGenre} artist {Artist}",
+                        "shuffle {MusicGenre} music by {Artist}"
+                    ]
+                },
+                {
+                    "name": "ListenToAlbum",
+                    "slots": [
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        },
+                        {
+                            "name": "Album",
+                            "type": "MUSICALBUMS"
+                        }
+                    ],
+                    "samples": [
+                        "listen to album {Album}",
+                        "listen to album {Album} by {Artist}",
+                        "listen to the album {Album}",
+                        "listen to the album {Album} by {Artist}",
+                        "play album {Album}",
+                        "play album {Album} by {Artist}",
+                        "play the album {Album}",
+                        "play the album {Album} by {Artist}"
+                    ]
+                },
+                {
+                    "name": "ListenToSong",
+                    "slots": [
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        },
+                        {
+                            "name": "Song",
+                            "type": "MUSICSONGS"
+                        },
+                        {
+                            "name": "Album",
+                            "type": "MUSICALBUMS"
+                        }
+                    ],
+                    "samples": [
+                        "listen to song {Song}",
+                        "listen to song {Song} by {Artist}",
+                        "listen to song {Song} from album {Album}",
+                        "listen to song {Song} from the album {Album}",
+                        "listen to song {Song} on album {Album}",
+                        "listen to song {Song} on the album {Album}",
+                        "listen to the song {Song}",
+                        "listen to the song {Song} by {Artist}",
+                        "listen to the song {Song} from album {Album}",
+                        "listen to the song {Song} from the album {Album}",
+                        "listen to the song {Song} on album {Album}",
+                        "listen to the song {Song} on the album {Album}",
+                        "play song {Song}",
+                        "play song {Song} by {Artist}",
+                        "play song {Song} from album {Album}",
+                        "play song {Song} from the album {Album}",
+                        "play song {Song} on album {Album}",
+                        "play song {Song} on the album {Album}",
+                        "play the song {Song}",
+                        "play the song {Song} by {Artist}",
+                        "play the song {Song} from album {Album}",
+                        "play the song {Song} from the album {Album}",
+                        "play the song {Song} on album {Album}",
+                        "play the song {Song} on the album {Album}"
+                    ]
+                },
+                {
+                    "name": "ListenToAlbumOrSong",
+                    "slots": [
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        },
+                        {
+                            "name": "Song",
+                            "type": "MUSICSONGS"
+                        }
+                    ],
+                    "samples": [
+                        "listen to {Song} by {Artist}",
+                        "play {Song} by {Artist}"
+                    ]
+                },
+                {
+                    "name": "WatchVideo",
+                    "slots": [
+                        {
+                            "name": "Movie",
+                            "type": "MOVIES"
+                        }
+                    ],
+                    "samples": [
+                        "watch {Movie}"
+                    ]
+                },
+                {
+                    "name": "WatchMovie",
+                    "slots": [
+                        {
+                            "name": "Movie",
+                            "type": "MOVIES"
+                        }
+                    ],
+                    "samples": [
+                        "play film {Movie}",
+                        "play movie {Movie}",
+                        "play the film {Movie}",
+                        "play the movie {Movie}",
+                        "watch film {Movie}",
+                        "watch movie {Movie}",
+                        "watch the film {Movie}",
+                        "watch the movie {Movie}"
+                    ]
+                },
+                {
+                    "name": "WatchMovieTrailer",
+                    "slots": [
+                        {
+                            "name": "Movie",
+                            "type": "MOVIES"
+                        }
+                    ],
+                    "samples": [
+                        "play preview",
+                        "play preview for {Movie}",
+                        "play the preview",
+                        "play the preview for {Movie}",
+                        "play the trailer",
+                        "play the trailer for {Movie}",
+                        "play trailer",
+                        "play trailer for {Movie}",
+                        "watch preview",
+                        "watch preview for {Movie}",
+                        "watch the preview",
+                        "watch the preview for {Movie}",
+                        "watch the trailer",
+                        "watch the trailer for {Movie}",
+                        "watch trailer",
+                        "watch trailer for {Movie}"
+                    ]
+                },
+                {
+                    "name": "WatchMusicVideo",
+                    "slots": [
+                        {
+                            "name": "MusicVideo",
+                            "type": "MUSICVIDEOS"
+                        },
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        }
+                    ],
+                    "samples": [
+                        "play music video by {Artist}",
+                        "play music video {MusicVideo}",
+                        "play music video {MusicVideo} by {Artist}",
+                        "play the music video {MusicVideo}",
+                        "play the music video {MusicVideo} by {Artist}",
+                        "watch music video {MusicVideo}",
+                        "watch music video {MusicVideo} by {Artist}",
+                        "watch the music video {MusicVideo}",
+                        "watch the music video {MusicVideo} by {Artist}"
+                    ]
+                },
+                {
+                    "name": "Home",
+                    "slots": [],
+                    "samples": [
+                        "go home",
+                        "home",
+                        "navigate home"
+                    ]
+                },
+                {
+                    "name": "Back",
+                    "slots": [],
+                    "samples": [
+                        "back",
+                        "go back",
+                        "navigate back"
+                    ]
+                },
+                {
+                    "name": "Info",
+                    "slots": [],
+                    "samples": [
+                        "info",
+                        "info dialog",
+                        "info window",
+                        "information",
+                        "information dialog",
+                        "information window",
+                        "open info",
+                        "open info dialog",
+                        "open info window",
+                        "open information",
+                        "open information dialog",
+                        "open information window",
+                        "show info",
+                        "show info dialog",
+                        "show info window",
+                        "show information",
+                        "show information dialog",
+                        "show information window"
+                    ]
+                },
+                {
+                    "name": "Guide",
+                    "slots": [],
+                    "samples": [
+                        "guide",
+                        "guide dialog",
+                        "guide window",
+                        "open guide",
+                        "open guide dialog",
+                        "open guide window",
+                        "show guide",
+                        "show guide dialog",
+                        "show guide window"
+                    ]
+                },
+                {
+                    "name": "Up",
+                    "slots": [],
+                    "samples": [
+                        "go up",
+                        "navigate up",
+                        "up"
+                    ]
+                },
+                {
+                    "name": "Down",
+                    "slots": [],
+                    "samples": [
+                        "down",
+                        "go down",
+                        "navigate down"
+                    ]
+                },
+                {
+                    "name": "Right",
+                    "slots": [],
+                    "samples": [
+                        "go right",
+                        "navigate right",
+                        "right"
+                    ]
+                },
+                {
+                    "name": "Left",
+                    "slots": [],
+                    "samples": [
+                        "go left",
+                        "left",
+                        "navigate left"
+                    ]
+                },
+                {
+                    "name": "Select",
+                    "slots": [],
+                    "samples": [
+                        "select"
+                    ]
+                },
+                {
+                    "name": "Menu",
+                    "slots": [],
+                    "samples": [
+                        "context menu",
+                        "menu",
+                        "open menu"
+                    ]
+                },
+                {
+                    "name": "PageUp",
+                    "slots": [],
+                    "samples": [
+                        "go page up",
+                        "navigate page up",
+                        "page up"
+                    ]
+                },
+                {
+                    "name": "PageDown",
+                    "slots": [],
+                    "samples": [
+                        "go page down",
+                        "navigate page down",
+                        "page down",
+                        "show more"
+                    ]
+                },
+                {
+                    "name": "ViewMovies",
+                    "slots": [
+                        {
+                            "name": "MovieGenre",
+                            "type": "MOVIEGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "show films",
+                        "find {MovieGenre} movies",
+                        "go to movies",
+                        "open movies",
+                        "search for {MovieGenre} movies",
+                        "show movies",
+                        "show {MovieGenre} movies"
+                    ]
+                },
+                {
+                    "name": "ViewShows",
+                    "slots": [
+                        {
+                            "name": "ShowGenre",
+                            "type": "SHOWGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "show recordings",
+                        "open recordings",
+                        "find {ShowGenre} shows",
+                        "find {ShowGenre} t. v. shows",
+                        "go to shows",
+                        "go to t. v. shows",
+                        "open shows",
+                        "open t. v. shows",
+                        "search for {ShowGenre} shows",
+                        "search for {ShowGenre} t. v. shows",
+                        "show shows",
+                        "show t. v. shows",
+                        "show {ShowGenre} shows",
+                        "show {ShowGenre} t. v. shows"
+                    ]
+                },
+                {
+                    "name": "ViewMusicVideos",
+                    "slots": [
+                        {
+                            "name": "MusicVideoGenre",
+                            "type": "MUSICVIDEOGENRES"
+                        },
+                        {
+                            "name": "MUSICVIDEOS",
+                            "type": "MUSICVIDEOS"
+                        }
+                    ],
+                    "samples": [
+                        "find {MusicVideoGenre} music videos",
+                        "go to {MUSICVIDEOS}",
+                        "open {MUSICVIDEOS}",
+                        "search for {MusicVideoGenre} music videos",
+                        "show music videos",
+                        "show {MusicVideoGenre} music videos"
+                    ]
+                },
+                {
+                    "name": "ViewMusic",
+                    "slots": [
+                        {
+                            "name": "MusicGenre",
+                            "type": "MUSICGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "find {MusicGenre} music",
+                        "go to music",
+                        "open music",
+                        "search for {MusicGenre} music",
+                        "show music",
+                        "show {MusicGenre} music"
+                    ]
+                },
+                {
+                    "name": "ViewArtists",
+                    "slots": [],
+                    "samples": [
+                        "go to artists",
+                        "go to music artists",
+                        "go to musicians",
+                        "open artists",
+                        "open music artists",
+                        "open musicians",
+                        "show artists",
+                        "show music artists",
+                        "show musicians"
+                    ]
+                },
+                {
+                    "name": "ViewAlbums",
+                    "slots": [],
+                    "samples": [
+                        "go to albums",
+                        "go to music albums",
+                        "open albums",
+                        "open music albums",
+                        "show albums",
+                        "show music albums"
+                    ]
+                },
+                {
+                    "name": "Mute",
+                    "slots": [],
+                    "samples": [
+                        "mute",
+                        "set mute",
+                        "set unmute",
+                        "toggle mute",
+                        "toggle unmute",
+                        "unmute"
+                    ]
+                },
+                {
+                    "name": "VolumeUp",
+                    "slots": [],
+                    "samples": [
+                        "turn up volume",
+                        "turn volume up",
+                        "up volume",
+                        "volume up"
+                    ]
+                },
+                {
+                    "name": "VolumeDown",
+                    "slots": [],
+                    "samples": [
+                        "down volume",
+                        "turn down volume",
+                        "turn volume down",
+                        "volume down"
+                    ]
+                },
+                {
+                    "name": "VolumeSet",
+                    "slots": [
+                        {
+                            "name": "Volume",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "set volume {Volume}",
+                        "volume {Volume}"
+                    ]
+                },
+                {
+                    "name": "VolumeSetPct",
+                    "slots": [
+                        {
+                            "name": "Volume",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "set volume {Volume} percent",
+                        "volume {Volume} percent"
+                    ]
+                },
+                {
+                    "name": "Reboot",
+                    "slots": [],
+                    "samples": [
+                        "reboot",
+                        "reboot system"
+                    ]
+                },
+                {
+                    "name": "Shutdown",
+                    "slots": [],
+                    "samples": [
+                        "shut down",
+                        "shut down system"
+                    ]
+                },
+                {
+                    "name": "CurrentPlayItemInquiry",
+                    "slots": [],
+                    "samples": [
+                        "what is currently playing",
+                        "what is playing",
+                        "what is this",
+                        "who is currently playing",
+                        "who is playing",
+                        "who is this"
+                    ]
+                },
+                {
+                    "name": "CurrentPlayItemTimeRemaining",
+                    "slots": [],
+                    "samples": [
+                        "how much is left",
+                        "how much is left on this",
+                        "how much is remaining",
+                        "how much is remaining on this",
+                        "how much longer",
+                        "how much longer is this",
+                        "how much time is left",
+                        "how much time is left on this",
+                        "how much time is remaining",
+                        "how much time is remaining on this",
+                        "what time does this end",
+                        "what time is this over",
+                        "what time this ends",
+                        "what time this is over",
+                        "what time will this end",
+                        "when does this end",
+                        "when is this over",
+                        "when this ends",
+                        "when this is over",
+                        "when will this end"
+                    ]
+                },
+                {
+                    "name": "AddonExecute",
+                    "slots": [
+                        {
+                            "name": "Addon",
+                            "type": "ADDONS"
+                        }
+                    ],
+                    "samples": [
+                        "execute add on {Addon}",
+                        "execute addon {Addon}",
+                        "execute plug in {Addon}",
+                        "execute plugin {Addon}",
+                        "execute script {Addon}",
+                        "execute {Addon}",
+                        "launch add on {Addon}",
+                        "launch addon {Addon}",
+                        "launch plug in {Addon}",
+                        "launch plugin {Addon}",
+                        "tlaunch script {Addon}",
+                        "launch {Addon}",
+                        "open add on {Addon}",
+                        "open addon {Addon}",
+                        "open plug in {Addon}",
+                        "open plugin {Addon}",
+                        "open script {Addon}",
+                        "open {Addon}",
+                        "run add on {Addon}",
+                        "run addon {Addon}",
+                        "run plug in {Addon}",
+                        "run plugin {Addon}",
+                        "run script {Addon}",
+                        "run {Addon}"
+                    ]
+                },
+                {
+                    "name": "AddonGlobalSearch",
+                    "slots": [
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        },
+                        {
+                            "name": "Album",
+                            "type": "MUSICALBUMS"
+                        },
+                        {
+                            "name": "Song",
+                            "type": "MUSICSONGS"
+                        },
+                        {
+                            "name": "Movie",
+                            "type": "MOVIES"
+                        },
+                        {
+                            "name": "Show",
+                            "type": "SHOWS"
+                        }
+                    ],
+                    "samples": [
+                        "find {Album}",
+                        "find {Artist}",
+                        "find {Movie}",
+                        "find {Show}",
+                        "search for {Album}",
+                        "search for {Artist}",
+                        "search for {Movie}",
+                        "search for {Show}"
+                    ]
+                },
+                {
+                    "name": "WatchPVRChannel",
+                    "slots": [
+                        {
+                            "name": "Channel",
+                            "type": "CHANNELS"
+                        }
+                    ],
+                    "samples": [
+                        "play channel {Channel}",
+                        "change to {Channel}",
+                        "play live t. v. channel {Channel}",
+                        "play live t. v. {Channel}",
+                        "play p. v. r. channel {Channel}",
+                        "play p. v. r. {Channel}",
+                        "play t. v. channel {Channel}",
+                        "play t. v. {Channel}",
+                        "play the channel {Channel}",
+                        "play the live t. v. channel {Channel}",
+                        "play the live t. v. {Channel}",
+                        "play the p. v. r. channel {Channel}",
+                        "play the p. v. r. {Channel}",
+                        "play the t. v. channel {Channel}",
+                        "play the t. v. {Channel}",
+                        "watch channel {Channel}",
+                        "watch live t. v. channel {Channel}",
+                        "watch live t. v. {Channel}",
+                        "watch p. v. r. channel {Channel}",
+                        "watch p. v. r. {Channel}",
+                        "watch t. v. channel {Channel}",
+                        "watch t. v. {Channel}",
+                        "watch the channel {Channel}",
+                        "watch the live t. v. channel {Channel}",
+                        "watch the live t. v. {Channel}",
+                        "watch the p. v. r. channel {Channel}",
+                        "watch the p. v. r. {Channel}",
+                        "watch the t. v. channel {Channel}",
+                        "watch the t. v. {Channel}"
+                    ]
+                },
+                {
+                    "name": "WatchPVRBroadcast",
+                    "slots": [
+                        {
+                            "name": "Broadcast",
+                            "type": "BROADCASTS"
+                        }
+                    ],
+                    "samples": [
+                        "change channel to {Broadcast}",
+                        "play broadcast {Broadcast}",
+                        "play live t. v. broadcast {Broadcast}",
+                        "play live t. v. program {Broadcast}",
+                        "play program {Broadcast}",
+                        "play t. v. broadcast {Broadcast}",
+                        "play t. v. program {Broadcast}",
+                        "play the broadcast {Broadcast}",
+                        "play the live t. v. broadcast {Broadcast}",
+                        "play the live t. v. program {Broadcast}",
+                        "play the program {Broadcast}",
+                        "play the t. v. broadcast {Broadcast}",
+                        "play the t. v. program {Broadcast}",
+                        "watch broadcast {Broadcast}",
+                        "watch live t. v. broadcast {Broadcast}",
+                        "watch live t. v. program {Broadcast}",
+                        "watch program {Broadcast}",
+                        "watch t. v. broadcast {Broadcast}",
+                        "watch t. v. program {Broadcast}",
+                        "watch the broadcast {Broadcast}",
+                        "watch the live t. v. broadcast {Broadcast}",
+                        "watch the live t. v. program {Broadcast}",
+                        "watch the program {Broadcast}",
+                        "watch the t. v. broadcast {Broadcast}",
+                        "watch the t. v. program {Broadcast}"
+                    ]
+                }
+            ],
+            "types": [
+                {
+                    "name": "SHOWS",
+                    "values": []
+                },
+                {
+                    "name": "SHOWGENRES",
+                    "values": []
+                },
+                {
+                    "name": "MOVIES",
+                    "values": []
+                },
+                {
+                    "name": "MOVIEGENRES",
+                    "values": []
+                },
+                {
+                    "name": "MUSICVIDEOS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "MUSICVIDEOGENRES",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "MUSICARTISTS",
+                    "values": []
+                },
+                {
+                    "name": "MUSICALBUMS",
+                    "values": []
+                },
+                {
+                    "name": "MUSICSONGS",
+                    "values": []
+                },
+                {
+                    "name": "MUSICGENRES",
+                    "values": []
+                },
+                {
+                    "name": "MUSICPLAYLISTS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "VIDEOPLAYLISTS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "ADDONS",
+                    "values": []
+                },
+                {
+                    "name": "CHANNELS",
+                    "values": []
+                },
+                {
+                    "name": "BROADCASTS",
+                    "values": []
+                }
+            ]
         }
-      ]
-    },
-    {
-      "intent": "RecommendShow",
-      "slots": [
-        {
-          "name": "ShowGenre",
-          "type": "SHOWGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "RecommendEpisode",
-      "slots": [
-        {
-          "name": "ShowGenre",
-          "type": "SHOWGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "RecommendMusicVideo",
-      "slots": [
-        {
-          "name": "MusicVideoGenre",
-          "type": "MUSICVIDEOGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "RecommendArtist",
-      "slots": [
-        {
-          "name": "MusicGenre",
-          "type": "MUSICGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "RecommendAlbum",
-      "slots": [
-        {
-          "name": "MusicGenre",
-          "type": "MUSICGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "RecommendSong",
-      "slots": [
-        {
-          "name": "MusicGenre",
-          "type": "MUSICGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "WhatNewAlbums"
-    },
-    {
-      "intent": "WhatNewMovies",
-      "slots": [
-        {
-          "name": "MovieGenre",
-          "type": "MOVIEGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "WhatNewShows"
-    },
-    {
-      "intent": "WhatNewEpisodes",
-      "slots": [
-        {
-          "name": "Show",
-          "type": "SHOWS"
-        }
-      ]
-    },
-    {
-      "intent": "CleanVideo"
-    },
-    {
-      "intent": "UpdateVideo"
-    },
-    {
-      "intent": "CleanAudio"
-    },
-    {
-      "intent": "UpdateAudio"
-    },
-    {
-      "intent": "PlayerSeekForward",
-      "slots": [
-        {
-          "name": "ForwardDur",
-          "type": "AMAZON.DURATION"
-        }
-      ]
-    },
-    {
-      "intent": "PlayerSeekBackward",
-      "slots": [
-        {
-          "name": "BackwardDur",
-          "type": "AMAZON.DURATION"
-        }
-      ]
-    },
-    {
-      "intent": "PlayerSeekSmallForward"
-    },
-    {
-      "intent": "PlayerSeekSmallBackward"
-    },
-    {
-      "intent": "PlayerSeekBigForward"
-    },
-    {
-      "intent": "PlayerSeekBigBackward"
-    },
-    {
-      "intent": "AMAZON.CancelIntent"
-    },
-    {
-      "intent": "AMAZON.StopIntent"
-    },
-    {
-      "intent": "AMAZON.NoIntent"
-    },
-    {
-      "intent": "AMAZON.YesIntent"
-    },
-    {
-      "intent": "AMAZON.NextIntent"
-    },
-    {
-      "intent": "AMAZON.PauseIntent"
-    },
-    {
-      "intent": "AMAZON.PreviousIntent"
-    },
-    {
-      "intent": "AMAZON.ResumeIntent"
-    },
-    {
-      "intent": "AMAZON.StartOverIntent"
-    },
-    {
-      "intent": "AMAZON.ShuffleOnIntent"
-    },
-    {
-      "intent": "AMAZON.ShuffleOffIntent"
-    },
-    {
-      "intent": "AMAZON.LoopOnIntent"
-    },
-    {
-      "intent": "AMAZON.LoopOffIntent"
-    },
-    {
-      "intent": "AMAZON.HelpIntent"
-    },
-    {
-      "intent": "PlayMedia",
-      "slots": [
-        {
-          "name": "Movie",
-          "type": "MOVIES"
-        }
-      ]
-    },
-    {
-      "intent": "ShuffleMedia",
-      "slots": [
-        {
-          "name": "Show",
-          "type": "SHOWS"
-        }
-      ]
-    },
-    {
-      "intent": "WhatAlbums",
-      "slots": [
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ListenToAudio",
-      "slots": [
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ListenToGenre",
-      "slots": [
-        {
-          "name": "MusicGenre",
-          "type": "MUSICGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "ListenToArtist",
-      "slots": [
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        },
-        {
-          "name": "MusicGenre",
-          "type": "MUSICGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "ListenToLatestAlbum",
-      "slots": [
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ListenToAlbum",
-      "slots": [
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        },
-        {
-          "name": "Album",
-          "type": "MUSICALBUMS"
-        }
-      ]
-    },
-    {
-      "intent": "ListenToSong",
-      "slots": [
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        },
-        {
-          "name": "Song",
-          "type": "MUSICSONGS"
-        },
-        {
-          "name": "Album",
-          "type": "MUSICALBUMS"
-        }
-      ]
-    },
-    {
-      "intent": "ListenToAlbumOrSong",
-      "slots": [
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        },
-        {
-          "name": "Song",
-          "type": "MUSICSONGS"
-        }
-      ]
-    },
-    {
-      "intent": "ListenToAudioPlaylist",
-      "slots": [
-        {
-          "name": "AudioPlaylist",
-          "type": "MUSICPLAYLISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ShuffleLatestAlbum",
-      "slots": [
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ShuffleAlbum",
-      "slots": [
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        },
-        {
-          "name": "Album",
-          "type": "MUSICALBUMS"
-        }
-      ]
-    },
-    {
-      "intent": "ShuffleAudioPlaylist",
-      "slots": [
-        {
-          "name": "AudioPlaylist",
-          "type": "MUSICPLAYLISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ListenToAudioPlaylistRecent"
-    },
-    {
-      "intent": "WatchVideo",
-      "slots": [
-        {
-          "name": "Movie",
-          "type": "MOVIES"
-        }
-      ]
-    },
-    {
-      "intent": "WatchEpisode",
-      "slots": [
-        {
-          "name": "Show",
-          "type": "SHOWS"
-        },
-        {
-          "name": "Episode",
-          "type": "AMAZON.NUMBER"
-        },
-        {
-          "name": "Season",
-          "type": "AMAZON.NUMBER"
-        }
-      ]
-    },
-		{
-      "intent": "WatchPVRChannel",
-      "slots": [
-        {
-          "name": "Channel",
-          "type": "CHANNELS"
-        }
-      ]
-    },
-    {
-      "intent": "WatchPVRBroadcast",
-      "slots": [
-        {
-          "name": "Broadcast",
-          "type": "BROADCASTS"
-        }
-      ]
-    },
-    {
-      "intent": "WatchRandomEpisode",
-      "slots": [
-        {
-          "name": "Show",
-          "type": "SHOWS"
-        }
-      ]
-    },
-    {
-      "intent": "WatchRandomShow",
-      "slots": [
-        {
-          "name": "ShowGenre",
-          "type": "SHOWGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "WatchLatestEpisode",
-      "slots": [
-        {
-          "name": "Show",
-          "type": "SHOWS"
-        }
-      ]
-    },
-    {
-      "intent": "WatchNextEpisode",
-      "slots": [
-        {
-          "name": "Show",
-          "type": "SHOWS"
-        }
-      ]
-    },
-    {
-      "intent": "WatchLastShow"
-    },
-    {
-      "intent": "WatchMovie",
-      "slots": [
-        {
-          "name": "Movie",
-          "type": "MOVIES"
-        }
-      ]
-    },
-    {
-      "intent": "WatchRandomMovie",
-      "slots": [
-        {
-          "name": "MovieGenre",
-          "type": "MOVIEGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "WatchMovieTrailer",
-      "slots": [
-        {
-          "name": "Movie",
-          "type": "MOVIES"
-        }
-      ]
-    },
-    {
-      "intent": "WatchMusicVideo",
-      "slots": [
-        {
-          "name": "MusicVideo",
-          "type": "MUSICVIDEOS"
-        },
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        }
-      ]
-    },
-    {
-      "intent": "WatchRandomMusicVideo",
-      "slots": [
-        {
-          "name": "MusicVideoGenre",
-          "type": "MUSICVIDEOGENRES"
-        },
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        }
-      ]
-    },
-    {
-      "intent": "WatchVideoPlaylist",
-      "slots": [
-        {
-          "name": "VideoPlaylist",
-          "type": "VIDEOPLAYLISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ShuffleMusicVideos",
-      "slots": [
-        {
-          "name": "MusicVideoGenre",
-          "type": "MUSICVIDEOGENRES"
-        },
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ShuffleShow",
-      "slots": [
-        {
-          "name": "Show",
-          "type": "SHOWS"
-        }
-      ]
-    },
-    {
-      "intent": "ShuffleVideoPlaylist",
-      "slots": [
-        {
-          "name": "VideoPlaylist",
-          "type": "VIDEOPLAYLISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ShufflePlaylist",
-      "slots": [
-        {
-          "name": "AudioPlaylist",
-          "type": "MUSICPLAYLISTS"
-        },
-        {
-          "name": "VideoPlaylist",
-          "type": "VIDEOPLAYLISTS"
-        }
-      ]
-    },
-    {
-      "intent": "Home"
-    },
-    {
-      "intent": "Back"
-    },
-    {
-      "intent": "Info"
-    },
-    {
-      "intent": "Guide"
-    },
-    {
-      "intent": "Up"
-    },
-    {
-      "intent": "Down"
-    },
-    {
-      "intent": "Right"
-    },
-    {
-      "intent": "Left"
-    },
-    {
-      "intent": "Select"
-    },
-    {
-      "intent": "Menu"
-    },
-    {
-      "intent": "PageUp"
-    },
-    {
-      "intent": "PageDown"
-    },
-    {
-      "intent": "ViewMovies",
-      "slots": [
-        {
-          "name": "MovieGenre",
-          "type": "MOVIEGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "ViewShows",
-      "slots": [
-        {
-          "name": "ShowGenre",
-          "type": "SHOWGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "ViewMusicVideos",
-      "slots": [
-        {
-          "name": "MusicVideoGenre",
-          "type": "MUSICVIDEOGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "ViewMusic",
-      "slots": [
-        {
-          "name": "MusicGenre",
-          "type": "MUSICGENRES"
-        }
-      ]
-    },
-    {
-      "intent": "ViewArtists"
-    },
-    {
-      "intent": "ViewAlbums"
-    },
-    {
-      "intent": "ViewVideoPlaylist",
-      "slots": [
-        {
-          "name": "VideoPlaylist",
-          "type": "VIDEOPLAYLISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ViewMoviePlaylistRecent"
-    },
-    {
-      "intent": "ViewEpisodePlaylistRecent"
-    },
-    {
-      "intent": "ViewMusicVideoPlaylistRecent"
-    },
-    {
-      "intent": "ViewAudioPlaylist",
-      "slots": [
-        {
-          "name": "AudioPlaylist",
-          "type": "MUSICPLAYLISTS"
-        }
-      ]
-    },
-    {
-      "intent": "ViewAudioPlaylistRecent"
-    },
-    {
-      "intent": "ViewPlaylist",
-      "slots": [
-        {
-          "name": "AudioPlaylist",
-          "type": "MUSICPLAYLISTS"
-        },
-        {
-          "name": "VideoPlaylist",
-          "type": "VIDEOPLAYLISTS"
-        }
-      ]
-    },
-    {
-      "intent": "Fullscreen"
-    },
-    {
-      "intent": "StereoscopicMode"
-    },
-    {
-      "intent": "AudioPassthrough"
-    },
-    {
-      "intent": "Mute"
-    },
-    {
-      "intent": "VolumeUp"
-    },
-    {
-      "intent": "VolumeDown"
-    },
-    {
-      "intent": "VolumeSet",
-      "slots": [
-        {
-          "name": "Volume",
-          "type": "AMAZON.NUMBER"
-        }
-      ]
-    },
-    {
-      "intent": "VolumeSetPct",
-      "slots": [
-        {
-          "name": "Volume",
-          "type": "AMAZON.NUMBER"
-        }
-      ]
-    },
-    {
-      "intent": "SubtitlesOn"
-    },
-    {
-      "intent": "SubtitlesOff"
-    },
-    {
-      "intent": "SubtitlesNext"
-    },
-    {
-      "intent": "SubtitlesPrevious"
-    },
-    {
-      "intent": "SubtitlesDownload"
-    },
-    {
-      "intent": "AudioStreamNext"
-    },
-    {
-      "intent": "AudioStreamPrevious"
-    },
-    {
-      "intent": "PlayerMoveUp"
-    },
-    {
-      "intent": "PlayerMoveDown"
-    },
-    {
-      "intent": "PlayerMoveLeft"
-    },
-    {
-      "intent": "PlayerMoveRight"
-    },
-    {
-      "intent": "PlayerRotateClockwise"
-    },
-    {
-      "intent": "PlayerRotateCounterClockwise"
-    },
-    {
-      "intent": "PlayerZoomHold"
-    },
-    {
-      "intent": "PlayerZoomIn"
-    },
-    {
-      "intent": "PlayerZoomInMoveUp"
-    },
-    {
-      "intent": "PlayerZoomInMoveDown"
-    },
-    {
-      "intent": "PlayerZoomInMoveLeft"
-    },
-    {
-      "intent": "PlayerZoomInMoveRight"
-    },
-    {
-      "intent": "PlayerZoomOut"
-    },
-    {
-      "intent": "PlayerZoomOutMoveUp"
-    },
-    {
-      "intent": "PlayerZoomOutMoveDown"
-    },
-    {
-      "intent": "PlayerZoomOutMoveLeft"
-    },
-    {
-      "intent": "PlayerZoomOutMoveRight"
-    },
-    {
-      "intent": "PlayerZoomReset"
-    },
-    {
-      "intent": "Hibernate"
-    },
-    {
-      "intent": "Reboot"
-    },
-    {
-      "intent": "Shutdown"
-    },
-    {
-      "intent": "Suspend"
-    },
-    {
-      "intent": "EjectMedia"
-    },
-    {
-      "intent": "PartyMode"
-    },
-    {
-      "intent": "CurrentPlayItemInquiry"
-    },
-    {
-      "intent": "CurrentPlayItemTimeRemaining"
-    },
-    {
-      "intent": "AddonExecute",
-      "slots": [
-        {
-          "name": "Addon",
-          "type": "ADDONS"
-        }
-      ]
-    },
-    {
-      "intent": "AddonGlobalSearch",
-      "slots": [
-        {
-          "name": "Artist",
-          "type": "MUSICARTISTS"
-        },
-        {
-          "name": "Album",
-          "type": "MUSICALBUMS"
-        },
-        {
-          "name": "Song",
-          "type": "MUSICSONGS"
-        },
-        {
-          "name": "Movie",
-          "type": "MOVIES"
-        },
-        {
-          "name": "Show",
-          "type": "SHOWS"
-        }
-      ]
     }
-  ]
 }
