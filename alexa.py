@@ -486,6 +486,14 @@ def find_and_play(kodi, needle, content=['video','audio'], shuffle=False, slot_h
       kodi.PlayMovie(movie[0][0])
       return render_template('playing_action', action=action, movie_name=movie[0][1]).encode('utf-8')
 
+  # Broadcast?
+  if 'video' in content and 'Program' not in slot_ignore and (slot_hint == 'unknown' or slot_hint == 'Program'):
+    broadcast = kodi.FindPVRBroadcast(needle)
+    if broadcast:
+      action = render_template('playing_empty').encode('utf-8')
+      kodi.WatchPVRChannel(broadcast[0][0])
+      return render_template('playing_pvr_broadcast', heard_pvr_broadcast = broadcast).encode('utf-8')
+       
   # Show?
   if 'video' in content and 'Show' not in slot_ignore and (slot_hint == 'unknown' or slot_hint == 'Show'):
     show = kodi.FindTvShow(needle)
@@ -1248,7 +1256,6 @@ def alexa_subtitles_download(kodi):
   item = kodi.DownloadSubtitles()
   return statement(card_title).simple_card(card_title, '')
 
-
 # Handle the AudioStreamNext intent.
 @ask.intent('AudioStreamNext')
 @preflight_check
@@ -1616,6 +1623,15 @@ def alexa_info(kodi):
   response_text = render_template('short_confirm').encode('utf-8')
   return question(response_text)
 
+# Handle the Guide intent.
+@ask.intent('Guide')
+@preflight_check
+def alexa_guide(kodi):
+  log.info('Navigate: Guide')
+
+  kodi.Guide()
+  response_text = render_template('short_confirm').encode('utf-8')
+  return question(response_text)
 
 # Handle the ViewMovies intent.
 @ask.intent('ViewMovies')
@@ -2668,21 +2684,20 @@ def alexa_watch_pvr_channel(kodi, Channel):
 
   return statement(response_text).simple_card(card_title, response_text)
 
-# Handle the WatchPVRBroadcasr intent
+# Handle the WatchPVRBroadcast intent
 @ask.intent('WatchPVRBroadcast')
 @preflight_check
 def alexa_watch_pvr_broadcast(kodi, Broadcast):
   card_title = render_template('playing_pvr_channel').encode('utf-8')
   log.info(card_title)
 
-  broadcast_id, broadcast_label, channel_id, channel_label = kodi.FindPVRBroadcast(Broadcast)
-  if broadcast_id:
-    kodi.WatchPVRChannel(channel_id)
-    response_text = render_template('playing_pvr_broadcast',
-                                    broadcast_name = broadcast_label,
-                                    channel_name = channel_label).encode('utf-8')
+  broadcast = kodi.FindPVRBroadcast(Broadcast)
+  if broadcast:
+    kodi.WatchPVRChannel(broadcast[0][0])
+    action = render_template('playing_empty').encode('utf-8')
+    response_text = render_template('playing_pvr_broadcast', heard_pvr_broadcast = broadcast).encode('utf-8')
   else:
-    response_text = render_template('could_not_find_pvr_broadcast', heard_pvr_broadcast=Broadcast).encode('utf-8')
+    response_text = render_template('could_not_find_pvr_broadcast', heard_pvr_broadcast=broadcast).encode('utf-8')
 
   return statement(response_text).simple_card(card_title, response_text)
 
