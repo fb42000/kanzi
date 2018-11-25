@@ -529,6 +529,9 @@
       "intent": "Info"
     },
     {
+      "intent": "Guide"
+    },
+    {
       "intent": "Up"
     },
     {
