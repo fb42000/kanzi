@@ -118,6 +118,8 @@ playing_empty: "Playing"
 
 playing_pvr_broadcast: "Playing {{ broadcast_name }} on {{ channel_name }}"
 
+playing_pvr_channel: "Playing {{ heard_pvr_channel }}"
+
 resuming_empty: "Resuming"
 
 shuffling: "Shuffling {{ heard_name }}"
@@ -390,8 +392,6 @@ shuffling_latest_album_card: "Shuffling latest album by {{ heard_artist }}"
 playing_song_card: "Playing song"
 
 playing_album_or_song: "Playing album or song"
-
-playing_pvr_channel: "Playing PVR channel"
 
 action_audio_playlist: "{{ action }} audio playlist"
 

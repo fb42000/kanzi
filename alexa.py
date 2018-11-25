@@ -2657,12 +2657,12 @@ def alexa_recommend_song(kodi, MusicGenre):
 def alexa_watch_pvr_channel(kodi, Channel):
   card_title = render_template('playing_pvr_channel').encode('utf-8')
   log.info(card_title) 
-
-  channel_id, channel_label = kodi.FindPVRChannel(Channel)
-  if channel_id:
+  
+  channel = kodi.FindPVRChannel(Channel)
+  if channel:
+    kodi.WatchPVRChannel(channel[0][0])
     action = render_template('playing_empty').encode('utf-8')
-    kodi.WatchPVRChannel(channel_id)
-    response_text = render_template('playing_action', action=action, movie_name=channel_label).encode('utf-8')
+    response_text = render_template('playing_pvr_channel', heard_pvr_channel=Channel).encode('utf-8')
   else:
     response_text = render_template('could_not_find_pvr_channel', heard_pvr_channel=Channel).encode('utf-8')
 
@@ -2671,7 +2671,7 @@ def alexa_watch_pvr_channel(kodi, Channel):
 # Handle the WatchPVRBroadcasr intent
 @ask.intent('WatchPVRBroadcast')
 @preflight_check
-def alexa_watch_pvr_broadcast(Broadcast):
+def alexa_watch_pvr_broadcast(kodi, Broadcast):
   card_title = render_template('playing_pvr_channel').encode('utf-8')
   log.info(card_title)
 
