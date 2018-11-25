@@ -4,8 +4,6 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Contents**
 
-Note - this version is still a work in progress to bring a usable PVR commands and scaled down library use 
-
 - [About](#about)
   - [Kodi-Alexa in Action](#kodi-alexa-in-action)
   - [Supported Commands](#supported-commands)
@@ -45,9 +43,13 @@ Note - this version is still a work in progress to bring a usable PVR commands a
 
 # About Kodi-Alexa
 
-This is a skill for Amazon Alexa that allows you to control one or more instances of [Kodi](https://kodi.tv) with your voice.
+This is a skill for Amazon Alexa that allows you to control one or more instances of [Kodi](https://kodi.tv) with your voice. 
 
-The process of setting up the skill may seem daunting at first, but the reward -- we feel -- is well worth the effort.  If you carefully follow the directions to the tee, you might find it is not as complicated as it seems.
+This repo is forked from the master Kanzi but includes additional PVR control and is based on the previous kodi-alexa and kodi-voice which was not up to date on other areas. Therefore this readme is not as per the Kanzi -lexigram install method, instead using Zappa Deployment as you will need to replace certain files within before uploading. Kanzi - lexigram automates this process for an easier install but will not give you the PVR elements.
+
+Please note this fork and version of readme is based only on using AWS Lambda as the host. Other methods as descirbed on the latest Kanzi master readme but cannot confirm the PVR functions will work as expected.
+
+The process of setting up the skill may seem daunting at first, but the reward -- we feel -- is well worth the effort.  If you carefully follow the directions to the tee, you might find it is not as complicated as it seems. 
 
 Unfortunately, as of this moment, we cannot simply ship this skill normally as other skills on Amazon's skill marketplace.  The main technical hurdle is that some features we would need are currently only supported in the US region.  Beyond that, there is the consideration of cost for hosting the skill and the associated database backend.  Do try to keep in mind that this is a hobby project for the developers -- we do not get paid in any way.
 
@@ -63,6 +65,14 @@ However, we have made every effort to here to provide clear and concise document
 
 Most everything you can do with a remote or keyboard is supported in the skill, and more:
 
+Additional features to Kanzi Master include;
+- PVR feature to open and change channel by channel name, 
+- PVR feature to watch an active programme by name
+- PVR show TV guide and navigate guide
+- Show info - all media including PVR Channel
+
+
+Kanzi Master Features Retained;
 - Basic navigation (Up/Down, Left/Right, Page Up/Down, Select, Back, Menu, Zoom, Rotate, Move)
 - Open library views (Movies, Shows, Music, Artists, Albums, Music Videos, Playlists)
 - Open library views by genre (Movies, Shows, Music, Music Videos)
@@ -123,7 +133,7 @@ Upgrading the skill from a previous version includes a lot of the initial setup 
 
 ## Initial Computer Setup
 
-Unless you are going to host the skill on [Heroku](https://heroku.com/), there are a few things you will need to install before you can get started:
+There are a few things you will need to install before you can get started:
 
 - [Python 2.7.x](https://www.python.org/downloads/) **(Python 3 is not supported)**
 - [Git](https://git-scm.com/downloads/)
@@ -188,37 +198,9 @@ For more information on port forwarding, see this [HowToGeek guide](https://www.
 
 When you ask an Amazon Alexa skill to do anything, it ultimately contacts another web server which executes code to process your request.  This skill isn't any different, and needs such a server as well.
 
-You have a few choices, ordered by difficulty:
+For the purpose of this readme, AWS Lambda is the working option:
 
-- [Heroku](#heroku)
-- ~~[Docker](#docker)~~
 - [AWS Lambda](#aws-lambda)
-- [Self-host](#self-hosting)
-
-Do note that while [Heroku](https://heroku.com/) is the easiest to setup, it does lack some features, such as support for multiple installations of [Kodi](https://kodi.tv).  If that is unimportant to you, we definitely recommend that you choose that deployment method.
-
-## Heroku
-
-### Pricing
-[Heroku](https://heroku.com/) is a great way to get a server running for free, but there is a small limitation with the free tier on Heroku where the 'dyno' will go to sleep after 30 minutes of in-activity. This might cause some commands to timeout, but so far it seems to be the best option for getting up and running as quickly as possibly. To get around this, you can either pay for a "Hobby" server which is only $7/month. If you really don't want to pay, there is a work-a-round where you get enough free hours per month to leave the server running 24/7 if you add your Credit Card to your account. Then you can use something like [Kaffeine](http://kaffeine.herokuapp.com/) to keep it from spinning down.
-
-### Limitations
-Currently we do not support [addressing multiple instances](#controlling-more-than-one-instance-of-kodi) of [Kodi](https://kodi.tv) with [Heroku](https://heroku.com/).  If you wish to control multiple instances of [Kodi](https://kodi.tv), you will need to set up multiple copies of the skill to do so.
-
-### Setup
-After you have set up an Heroku account, click on this button below to provision a new server. Select a unique name to make upgrades easy.
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://www.heroku.com/deploy/?template=https://github.com/m0ngr31/kodi-alexa)
-
-_Make note of the endpoint_
-
-Now skip ahead to [Skill Setup](#skill-setup).
-
-
-## Docker
-### Setup
-_Coming soon_.
-
 
 ## AWS Lambda
 ### Pricing
@@ -244,7 +226,7 @@ Next, run these commands to configure your computer for AWS service access:
 
 After you've done that, run `pip install virtualenv`. This is required for a later step.
 
-Now, clone my repo: `git clone https://github.com/m0ngr31/kodi-alexa.git` and `cd kodi-alexa`. Once you are inside the project directory, you're going to create a new "Virtual environement" and then activate it:
+Now, clone my repo: `git clone https://github.com/fb42000/kanzi.git` and `cd kanzi`. Once you are inside the project directory, you're going to create a new "Virtual environement" and then activate it:
 `virtualenv venv` and `source venv/bin/activate` (if you are on Windows, that's `venv\Scripts\activate.bat` or `venv\Scripts\activate.ps1` for Powershell).
 
 Next you need to create the file `kodi.config` from the [kodi.config.example template](https://raw.githubusercontent.com/im85288/kodi-voice/master/kodi_voice/kodi.config.example) and enter the correct information for: address, port, username, and password. I'll go over the other variables in another section below.
@@ -261,17 +243,6 @@ You are now running on Lambda! To update after there is a change here, or you up
 Now skip ahead to [Skill Setup](#skill-setup).
 
 
-## Self Hosting
-
-If you are savvy enough to run your own web server, this is just a bog-standard WSGI app, and you're free to host it on any web server, provided it supports HTTPS.  You will have to generate your own SSL certificate, be it self-signed or via a Certificate Authority (CA), such as [Let's Encrypt](https://letsencrypt.org/).  This is an Amazon requirement.
-
-You will need to create the file `kodi.config` from the [kodi.config.example template](https://raw.githubusercontent.com/im85288/kodi-voice/master/kodi_voice/kodi.config.example).  The template file contains comments to describe the options.
-
-Install the modules in `requirements.txt`.
-
-Now skip ahead to [Skill Setup](#skill-setup).
-
-
 # Skill Setup
 
 Once you've set up your server, you'll need to configure an Interaction Model for your skill.
@@ -282,55 +253,61 @@ Then, head over to the [Skills list on Amazon's developer page](https://develope
 
 ## Skill Information
 
-![Inital setup skill](http://i.imgur.com/AzufQxo.png)
+This is info updated to all readme based on the new Alexa Developer Console
 
-For _Skill Type_, choose **Custom Interaction Model**.
+![Inital setup skill](http://i.imgur.com/WkI6dcg.png)
 
-For _Language_, choose your native language.
+Enter a _Skill Name_, enter **Kodi**
 
-For _Name_, enter **Kodi**.
+For _Language_, choose your native language. - Repo default is English(UK) - Note any other language files for intents etc will need translation
 
-For _Invocation Name_, you can choose whatever you like.  **kodi** works well for us, but it can be whatever you'd like for the phrase:
+For _Choose a model to add to your skill_, select the square **Custom**.
 
-`alexa, tell invocation_name to ...`
+Then select the blue button **Create Skill**
 
-Leave everything else at their default values.
+On the next page
 
-## Interaction Model
+For _Choose a template_, select the square **Start from Scratch**. Yes this may seem a daunting selection but included in the repo is a JSON schema that will fill in lot of the gaps for you
 
-This is the model that Alexa will use to pass information to the skill that we've deployed earlier.
+Then select the blue button **Choose**
 
-The Model consists of Slots, an Intent Schema, and Sample Utterances.
+You will then be greated with the new Alexa Developer Console.
 
-You need to first create the Slots that contain the library items in [Kodi](https://kodi.tv), broken up into categories for the skill.  It is not necessary to keep these up-to-date after the initial setup of the Interaction Model.
+![Developer Console Skill](http://i.imgur.com/wBKE6wI.png)
 
-To establish initial Slot values, you can use [this webapp](https://slot-generator.herokuapp.com/) and point it at the instance of [Kodi](https://kodi.tv) that has the largest number of items in its library.
+## Alexa Developer Console
 
-You can also get the information from running `python generate_custom_slots.py` in the project directory, assuming you have a local copy of the code and proper configuration in `kodi.config`.  This will communicate with the [Kodi](https://kodi.tv) instance defined in the `[DEFAULT]` section in `kodi.config` and generate a series of files from which you can create your Slots.
+This is the area that Alexa will use to pass information to the skill that we've deployed earlier. It will not enable the skill until all four requirements listed down the right hand side are met.
 
-For each Slot, you need to click `Add Slot Type`, name it according to the output from one of the above generators, and fill the values with their contents.
+So, here we go, in a change to anything previously published on a readme, this 'should' be a relatively simple painless process as the hard work is done;
 
-Ultimately, you will end up adding the following Slots:
+First, if you scroll down to **JSON Editor**
 
-- MOVIES
-- MOVIEGENRES
-- SHOWS
-- SHOWGENRES
-- MUSICVIDEOS
-- MUSICVIDEOGENRES
-- MUSICARTISTS
-- MUSICALBUMS
-- MUSICSONGS
-- MUSICGENRES
-- MUSICPLAYLISTS
-- VIDEOPLAYLISTS
-- ADDONS
+When the main window opens, select **Drag and Drop a .json file**
 
-_If one of your slots is empty, you can just enter the word 'Empty' or something so that it'll save._
+Then, drag the file [IntentSchema.json](https://github.com/fb42000/kanzi/blob/master/speech_assets/IntentSchema.json) from your local Kanzi folder (sub folder speech_assets) created earlier
 
-Next, you'll have to paste the contents of [IntentSchema.json](https://raw.githubusercontent.com/m0ngr31/kodi-alexa/master/speech_assets/IntentSchema.json) into the _Intent Schema_ field.
+Select **Save Model**
 
-Then, paste the contents of [SampleUtterances.en.txt](https://raw.githubusercontent.com/m0ngr31/kodi-alexa/master/speech_assets/SampleUtterances.en.txt) or [SampleUtterances.de.txt](https://raw.githubusercontent.com/m0ngr31/kodi-alexa/master/speech_assets/SampleUtterances.de.txt), depending on your native language, in the _Sample Utterances_ field.
+It will come up with an error on the first attempt as we have not yet set an _Invocation_. A pop up will even advise you of this
+
+To resolve this error, (do not select another item and then OK in the prompt otherwise you will lose all the JSON code inserted); In the JSON editor window scroll to Line 4 "invocation name" and insert within the RED inverted commas a **Name** (it can be anything at this stage just to move past the 'error')
+
+Select **Save Model**  This should then populate all the intents and slots and allows you to select your prefered invocation name below. Note it will still report an error when saving as we then need to populate the custom slot values, but all the main JSON code is now saved.
+
+![JSON Editor](http://i.imgur.com/tdwfGCQ.png)
+
+To set the Invocation properly (if you need to change the name you used above);
+
+For _Invocation_, select the word **Invocation** on the left hand menu. This is the skill invocation name that you will call after the wake word, i.e "Alexa, ask my telly..." where "my telly" is the invocation word (or words). Note the requirements and limitations, this can be changed at any time as this skill won't be published, you will however need to re build the skill each time it is changed.
+
+Select **Save Model** - get into the habit of using this on every item you change / do - it may help but certainly wont hinder. It will also show a pop up if saved OK or if there is an issue so it is easier to trace the steps to any errors created
+
+![Invocation Name](http://i.imgur.com/KeUEBec.png)
+
+
+
+
 
 ![2nd tab](http://i.imgur.com/WQYExdK.png)
 
