@@ -229,6 +229,11 @@ After you've created your config file, run `pip install -r requirements.txt` and
 
 Before you can send any code to Lambda, you'll need to set up Zappa. Just run `zappa init` and accept the defaults for everything. If it doesn't automatically detect that this is a Flask app, tell it that the application function is `alexa.app`.
 
+**THIS IS THE IMPORTANT BIT TO GET PVR FEATURES**
+
+Before the skill is deployed, to get the working PVR features you need to overwrite the kodi.py file with the one from my kodi-voice repo [kodi.py](https://github.com/fb42000/kodi-voice/blob/master/kodi_voice/kodi.py)
+Save this file and overwrite the kodi.py in the created directory /kanzi/venv/lib/python2.7/site-packages/kodi_voice/ with the above file. If this does not happen prior to next step below you will not get PVR functions
+
 To make an initial deployment to Lambda, just run the following command: `zappa deploy dev`. It'll take a few minutes, and at the end it will give you a URL that you will need to copy. It will look like this:
 ![Lambda deploy](http://i.imgur.com/5rtN5ls.png)
 
