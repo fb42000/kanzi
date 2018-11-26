@@ -259,7 +259,7 @@ Then, head over to the [Skills list on Amazon's developer page](https://develope
 
 This is info updated to all readme based on the new Alexa Developer Console
 
-![Inital setup skill](http://i.imgur.com/WkI6dcg.png)
+![Inital setup skill](http://i.imgur.com/WakM38r.png)
 
 Enter a _Skill Name_, enter **Kodi**
 
@@ -277,7 +277,7 @@ Then select the blue button **Choose**
 
 You will then be greated with the new Alexa Developer Console.
 
-![Developer Console Skill](http://i.imgur.com/wBKE6wI.png)
+![Developer Console Skill](http://i.imgur.com/tzofuqi.png)
 
 ## Alexa Developer Console
 
@@ -299,7 +299,7 @@ To resolve this error, (do not select another item and then OK in the prompt oth
 
 Select **Save Model**  This should then populate all the intents and slots and allows you to select your prefered invocation name below. Note it will still report an error when saving as we then need to populate the custom slot values, but all the main JSON schema is now saved.
 
-![JSON Editor](http://i.imgur.com/tdwfGCQ.png)
+![JSON Editor](http://i.imgur.com/Yei6ijR.png)
 
 To set the Invocation properly (if you need to change the name you used above);
 
@@ -307,11 +307,11 @@ For _Invocation_, select the word **Invocation** on the left hand menu. This is 
 
 Select **Save Model** - get into the habit of using this on every item you change / do - it may help but certainly wont hinder. It will also show a pop up if saved OK or if there is an issue so it is easier to trace the steps to any errors created
 
-![Invocation Name](http://i.imgur.com/KeUEBec.png)
+![Invocation Name](http://i.imgur.com/XHFZ6Wx.png)
 
 We should now have populated **INTENTS** with (60) items and **SLOT TYPES** with (17)
 
-![Populated intents](http://i.imgur.com/mrS65U2.png)
+![Populated intents](http://i.imgur.com/FXcyw6T.png)
 
 Now we need to populate the Slot Types to stop it complaining about errors (Slot types cannot be empty). This is where it gets personal though so a bit of work to do;
 
@@ -325,22 +325,33 @@ Handy as there is an easy way to do this, thanks to the process below taken from
 I found the web app the easiest as you have all the info needed from creating the kodi.config file earlier. Once it has run you can select and copy each bulk output from each slot type, copy and pasting them into the Bulk Edit option on each slot type window
 
 Movie Example Screenshot
-![Slot types](http://i.imgur.com/qhuNZAC.png)
+![Slot types](http://i.imgur.com/gUskp0o.png)
 
 Select **Submit** on each one done and also **Save Model**
 
 Repeat for;
 SHOWS
+
 SHOW GENRES
+
 MOVIES
+
 MOVIEGENRES
+
 MUSICVIDEOS
+
 MUSICVIDEOGENRES
+
 MUSICALBUMS
+
 MUSICSONGS
+
 MUSICGENRES
+
 MUSICPLAYLISTS
+
 VIDEOPLAYLISTS
+
 ADDONS
 
 If you have no slot values to copy over, then you need to ensure you enter at least one Slot Value, "Empty" will be OK
@@ -355,7 +366,7 @@ If the included file is of use to you, (ie you are in the UK and most if not all
 
 If you are not in the UK or all your channels are not listed then the method to get your channel list is as below, 
 
-In a web browser address bar, use the JSON request (replacing my.kodi.address:port with your IP:port to your kodi instance);
+In a web browser address bar, use the JSON request (replacing my.kodi.ip.address:port with your IP:port to your kodi instance);
 
 http://my.kodi.ip.address:port/jsonrpc?request={"jsonrpc": "2.0", "method": "PVR.GetChannels","params":{"channelgroupid": "alltv"},"id": 1}
 
@@ -386,7 +397,7 @@ Select **Save Model**
 
 There should now be no error complaints from the developer console
 
-![Save Model Error Free](http://i.imgur.com/mHCCatt.png)
+![Save Model Error Free](http://i.imgur.com/ur12lX2.png)
 
 
 ## Endpoint
@@ -428,7 +439,7 @@ try for example "ask my telly to change to bbc one" You don't need the wake word
 
 Your kodi instance should then react and the return in the box will be printed
 
-![Test Complete](http://i.imgur.com/v7jAYrO.png)
+![Test Complete](http://i.imgur.com/803Iirj.png)
 
 
 
