@@ -281,7 +281,7 @@ This is the area that Alexa will use to pass information to the skill that we've
 
 So, here we go, in a change to anything previously published on a readme, this 'should' be a relatively simple painless process as the hard work is done;
 
-First, if you scroll down to **JSON Editor**
+First, if you scroll down to **JSON Editor** and select
 
 When the main window opens, select **Drag and Drop a .json file**
 
@@ -293,7 +293,7 @@ It will come up with an error on the first attempt as we have not yet set an _In
 
 To resolve this error, (do not select another item and then OK in the prompt otherwise you will lose all the JSON code inserted); In the JSON editor window scroll to Line 4 "invocation name" and insert within the RED inverted commas a **Name** (it can be anything at this stage just to move past the 'error')
 
-Select **Save Model**  This should then populate all the intents and slots and allows you to select your prefered invocation name below. Note it will still report an error when saving as we then need to populate the custom slot values, but all the main JSON code is now saved.
+Select **Save Model**  This should then populate all the intents and slots and allows you to select your prefered invocation name below. Note it will still report an error when saving as we then need to populate the custom slot values, but all the main JSON schema is now saved.
 
 ![JSON Editor](http://i.imgur.com/tdwfGCQ.png)
 
@@ -311,11 +311,11 @@ We should now have populated **INTENTS** with (60) items and **SLOT TYPES** with
 
 Now we need to populate the Slot Types to stop it complaining about errors (Slot types cannot be empty). This is where it gets personal though so a bit of work to do;
 
-For each slot type it's best to insert all your content, i.e. Movies will need to be filled with all you library movies. This allows the skill to recognise what it is looking for.
+For each slot type it's best to insert all your content, i.e. Movies will need to be filled with all your library movies. This allows the skill to recognise what it is looking for.
 
 Handy as there is an easy way to do this, thanks to the process below taken from the original kodi-voice repo;
 
-"To make it as easy as possible, I wrote a little webapp that will give you the information you need: here.. You can also get the information from running python generate_custom_slots.py in the repo directory if you have python installed. This will create txt files with the relevant information. If one of your slots is empty, you can just enter the word 'Empty' or something so that it'll save."
+"To make it as easy as possible, I wrote a little webapp that will give you the information you need: [here.](https://slot-generator.herokuapp.com/) You can also get the information from running python generate_custom_slots.py in the repo directory if you have python installed. This will create txt files with the relevant information. If one of your slots is empty, you can just enter the word 'Empty' or something so that it'll save."
 
 
 I found the web app the easiest as you have all the info needed from creating the kodi.config file earlier. Once it has run you can select and copy each bulk output from each slot type, copy and pasting them into the Bulk Edit option on each slot type window
