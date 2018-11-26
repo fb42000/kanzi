@@ -20,12 +20,12 @@
   - [AWS Lambda](#aws-lambda)
     - [Pricing](#pricing-1)
     - [Setup](#setup-2)
-  - [Self Hosting](#self-hosting)
-- [Skill Setup](#skill-setup)
+ - [Skill Setup](#skill-setup)
   - [Skill Information](#skill-information)
-  - [Interaction Model](#interaction-model)
-  - [Configuration](#configuration)
-  - [SSL Certificate](#ssl-certificate)
+  - [Alexa Developer Console](#Alexa-Developer-Console)
+  - [Channel Slot Values (Non UK)](#channel-slot-values)
+  - [Channel & Broadcast Slot Values](#channel-broadcast-slot-values)
+  - [Endpoint](#endpoint)
   - [Testing](#testing)
 - [Additional Validation of Requests](#additional-validation-of-requests)
 - [Extra Settings for More Functionality](#extra-settings-for-more-functionality)
@@ -347,9 +347,11 @@ If you are not in the UK or all your channels are not listed then the method to 
 
 In a web browser address bar, use the JSON request (replacing my.kodi.address:port with your IP:port to your kodi instance);
 
-"http://my.kodi.ip.address:port/jsonrpc?request={"jsonrpc": "2.0", "method": "PVR.GetChannels","params":{"channelgroupid": "alltv"},"id": 1}"  You should be prompted with your kodi username and password (if not you haven't set up the earlier config process properly)
+http://my.kodi.ip.address:port/jsonrpc?request={"jsonrpc": "2.0", "method": "PVR.GetChannels","params":{"channelgroupid": "alltv"},"id": 1}
+
+You should be prompted with your kodi username and password (if not you haven't set up the earlier config process properly)
  
-This will return a JSON list of all of your channels, channel id's and channel names. My working version is using TVHeadend as the backend PVR and doesn't pick up actual channel numbers although it is a work in progress for it to.
+This will return a JSON list of all of your channels, channel id's and channel labels (real life names). My working version is using TVHeadend as the backend PVR and doesn't pick up actual channel numbers although it is a work in progress for it to.
 
 Next we can convert the above JSON list by using an online convertor. I found "convertcsv" website to work well however we cannot be responsible for the use of any external links. Copy and paste the full list output from the above JSON command into the convertor and create your csv text or an excel / ods .csv file.
 
@@ -370,25 +372,54 @@ Select **Save Model**
 
 Repeat this process for **BROADCASTS**
 
-Enter your endpoint here.  It will always be `HTTPS` and you should choose a region that is geographically close to you:
+Select **Save Model**
 
-![3rd tab](http://i.imgur.com/GjFvKYv.png)
+There should now be no error complaints from the developer console
 
-## SSL Certificate
+![Save Model Error Free](http://i.imgur.com/mHCCatt.png)
 
-If you are using Heroku or Lambda, select the middle option:
 
-![4th tab](http://i.imgur.com/moGJQrx.png)
+## Endpoint
 
-If you are self-hosting, select one of the outer options depending on how you've chosen to generate your certificate.
+The last step in the developer console is to insert your endpoint. This is where the skill points to the lambda instance where this was setup under AWS Lambda Setup above. You 'should' have copied an address from this stage here;
+
+"To make an initial deployment to Lambda, just run the following command: `zappa deploy dev`. It'll take a few minutes, and at the end it will give you a URL that you will need to copy" If you didn't then you can re run by using the steps from activate virtual environment and updating. This will then confirm the address.
+
+Select **Endpoint**, then select radio button "HTTPS"
+
+Copy and paste the address saved earlier into the "default region field" and on the drop down box below select "My development endpoint is a sub domain ........."
+
+Select **Save Endpoint**
+
+Then Select **Invocation**, select **Save Model**, then **Build Model**
+
+Give it time to build (approx up to 1 minute)
+
+If all saves and builds correctly without errors, selecting **Custom** will show all four green ticks now complete on the right hand menu
+
 
 ## Testing
 
-Setup is complete at this point.
+First before you test you need to enable the skill in your Alexa App. Under Skills & Games, Your Skills, Dev Skills. Select your skill name and enable
 
-From here, you can use the simulator or any other Alexa-enabled device to test requests.  Note that the simulator has a few nuances and isn't identical to an actual device, so if a request fails in the simulator, please try it on a real Alexa-enabled device.
+Either test with your Echo device, try for example "Alexa, ask my telly to change to bbc one" (or one of your known channels using the invocation name you chose)
 
-If you can't manage to get valid responses at this point, see the [Getting Help](#getting-help) section.
+or with the developer console built in test facility
+
+In the developer console, on the main menu bar 
+
+Select **Test**
+
+Enable using the slider to enable
+
+Type a command in the input box
+
+try for example "ask my telly to change to bbc one" You don't need the wake word when using the developer test
+
+Your kodi instance should then react and the return in the box will be printed
+
+![Test Complete](http://i.imgur.com/v7jAYrO.png)
+
 
 
 # Additional Validation of Requests
