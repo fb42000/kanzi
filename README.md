@@ -17,12 +17,6 @@
   - [Router Setup](#router-setup)
 - [Skill Deployment](#skill-deployment)
   - [Choosing a Deployment Method for the Skill](#choosing-a-deployment-method-for-the-skill)
-  - [Heroku](#heroku)
-    - [Pricing](#pricing)
-    - [Limitations](#limitations)
-    - [Setup](#setup)
-  - [Docker](#docker)
-    - [Setup](#setup-1)
   - [AWS Lambda](#aws-lambda)
     - [Pricing](#pricing-1)
     - [Setup](#setup-2)
@@ -65,7 +59,7 @@ However, we have made every effort to here to provide clear and concise document
 
 Most everything you can do with a remote or keyboard is supported in the skill, and more:
 
-Additional features to Kanzi Master include;
+Additional features to Kanzi Master include; (**requires a PVR backend and client such as TV Headend**)
 - PVR feature to open and change channel by channel name, 
 - PVR feature to watch an active programme by name
 - PVR show TV guide and navigate guide
