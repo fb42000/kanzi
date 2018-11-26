@@ -305,13 +305,76 @@ Select **Save Model** - get into the habit of using this on every item you chang
 
 ![Invocation Name](http://i.imgur.com/KeUEBec.png)
 
+We should now have populated **INTENTS** with (60) items and **SLOT TYPES** with (17)
+
+![Populated intents](http://i.imgur.com/mrS65U2.png)
+
+Now we need to populate the Slot Types to stop it complaining about errors (Slot types cannot be empty). This is where it gets personal though so a bit of work to do;
+
+For each slot type it's best to insert all your content, i.e. Movies will need to be filled with all you library movies. This allows the skill to recognise what it is looking for.
+
+Handy as there is an easy way to do this, thanks to the process below taken from the original kodi-voice repo;
+
+"To make it as easy as possible, I wrote a little webapp that will give you the information you need: here.. You can also get the information from running python generate_custom_slots.py in the repo directory if you have python installed. This will create txt files with the relevant information. If one of your slots is empty, you can just enter the word 'Empty' or something so that it'll save."
 
 
+I found the web app the easiest as you have all the info needed from creating the kodi.config file earlier. Once it has run you can select and copy each bulk output from each slot type, copy and pasting them into the Bulk Edit option on each slot type window
+
+Movie Example Screenshot
+![Slot types](http://i.imgur.com/qhuNZAC.png)
+
+Select **Submit** on each one done and also **Save Model**
+
+Repeat for;
+SHOWS
+SHOW GENRES
+MOVIES
+MOVIEGENRES
+MUSICVIDEOS
+MUSICVIDEOGENRES
+MUSICALBUMS
+MUSICSONGS
+MUSICGENRES
+MUSICPLAYLISTS
+VIDEOPLAYLISTS
+ADDONS
+
+If you have no slot values to copy over, then you need to ensure you enter at least one Slot Value, "Empty" will be OK
+
+The two Slot Types you wont have from this method, or by running the python script, are for CHANNELS and BROADCAST. These are the PVR elements.
+
+I have included a csv file [uk_fta_channels.csv](https://github.com/fb42000/kanzi/blob/master/uk_fta_channels.csv)  for a list of UK FTA Channels that I use, this includes the main freeview and freesat channels in the UK.
+
+If the included file is of use to you, (ie you are in the UK and most if not all of your channels are on it) then skip this next section
+
+## Channel Slot Values (Non UK)
+
+If you are not in the UK or all your channels are not listed then the method to get your channel list is as below, 
+
+In a web browser address bar, use the JSON request (replacing my.kodi.address:port with your IP:port to your kodi instance);
+
+"http://my.kodi.ip.address:port/jsonrpc?request={"jsonrpc": "2.0", "method": "PVR.GetChannels","params":{"channelgroupid": "alltv"},"id": 1}"  You should be prompted with your kodi username and password (if not you haven't set up the earlier config process properly)
+ 
+This will return a JSON list of all of your channels, channel id's and channel names. My working version is using TVHeadend as the backend PVR and doesn't pick up actual channel numbers although it is a work in progress for it to.
+
+Next we can convert the above JSON list by using an online convertor. I found "convertcsv" website to work well however we cannot be responsible for the use of any external links. Copy and paste the full list output from the above JSON command into the convertor and create your csv text or an excel / ods .csv file.
+
+One thing I needed to do from the converted JSON output in the csv format is to move the channel label column to be read first (ie Column A) as this is what you are more likely to speak rather than a channel id (channel id is not to be confused with channel number - they are not the same or certainly not in TVH)
+
+Once you have your csv file save it within the Kanzi folder created earlier
 
 
-![2nd tab](http://i.imgur.com/WQYExdK.png)
+## Channel & Broadcast Slot Values (UK & Non UK)
 
-## Configuration
+Now we have a csv file with all our channels on it, we can bulk edit it into the Slot Type
+
+Select **CHANNELS** under Slot Types on the left hand menu, then select **BULK EDIT** 
+
+Drag and drop the csv file UK users -  [uk_fta_channels.csv](https://github.com/fb42000/kanzi/blob/master/uk_fta_channels.csv) or for Non UK - the csv file created above
+
+Select **Save Model**
+
+Repeat this process for **BROADCASTS**
 
 Enter your endpoint here.  It will always be `HTTPS` and you should choose a region that is geographically close to you:
 
