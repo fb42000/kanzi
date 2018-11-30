@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "my telly",
+            "invocationName": "telly",
             "intents": [
                 {
                     "name": "PlayerSeekForward",
@@ -926,6 +926,78 @@
                         "watch the t. v. broadcast {Broadcast}",
                         "watch the t. v. program {Broadcast}"
                     ]
+                },
+                {
+                    "name": "RecordPVRChannel",
+                    "slots": [
+                        {
+                            "name": "Channel",
+                            "type": "CHANNELS"
+                        }
+                    ],
+                    "samples": [
+                        "Record channel {Channel}",
+                        "Record  {Channel}",
+                        "Record live t. v. channel {Channel}",
+                        "Record live t. v. {Channel}",
+                        "Record p. v. r. channel {Channel}",
+                        "Record p. v. r. {Channel}",
+                        "Record t. v. channel {Channel}",
+                        "Record t. v. {Channel}",
+                        "Record the channel {Channel}",
+                        "Record the live t. v. channel {Channel}",
+                        "Record the live t. v. {Channel}",
+                        "Record the p. v. r. channel {Channel}",
+                        "Record the p. v. r. {Channel}",
+                        "Record the t. v. channel {Channel}",
+                        "Record the t. v. {Channel}"
+                    ]
+                },
+                {
+                    "name": "RecordPVRBroadcast",
+                    "slots": [
+                        {
+                            "name": "Broadcast",
+                            "type": "BROADCASTS"
+                        }
+                    ],
+                    "samples": [
+                        "Record broadcast {Broadcast}",
+                        "Record live t. v. broadcast {Broadcast}",
+                        "Record live t. v. program {Broadcast}",
+                        "Record program {Broadcast}",
+                        "Record t. v. broadcast {Broadcast}",
+                        "Record t. v. program {Broadcast}",
+                        "Record the broadcast {Broadcast}",
+                        "Record the live t. v. broadcast {Broadcast}",
+                        "Record the live t. v. program {Broadcast}",
+                        "Record the program {Broadcast}",
+                        "Record the t. v. broadcast {Broadcast}",
+                        "Record the t. v. program {Broadcast}"
+                    ]
+                },
+                {
+                    "name": "WatchPreviousPVRChannel",
+                    "slots": [],
+                    "samples": [
+                        "last channel"
+                    ]
+                },
+                {
+                    "name": "ChannelUp",
+                    "slots": [],
+                    "samples": [
+                        "next channel",
+                        "channel up"
+                    ]
+                },
+                {
+                    "name": "ChannelDown",
+                    "slots": [],
+                    "samples": [
+                        "previous channel",
+                        "channel down"
+                    ]
                 }
             ],
             "types": [
@@ -943,7 +1015,103 @@
                 },
                 {
                     "name": "MOVIEGENRES",
-                    "values": []
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Action"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Adventure"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Animation"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Comedy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Crime"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Documentary"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Drama"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Family"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Fantasy"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Foreign"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "History"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Music"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Mystery"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Romance"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Science Fiction"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "TV Movie"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Thriller"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "War"
+                            }
+                        },
+                        {
+                            "name": {
+                                "value": "Western"
+                            }
+                        }
+                    ]
                 },
                 {
                     "name": "MUSICVIDEOS",
