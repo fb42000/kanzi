@@ -60,7 +60,8 @@ However, we have made every effort to here to provide clear and concise document
 Most everything you can do with a remote or keyboard is supported in the skill, and more:
 
 Additional features to Kanzi Master include; (**requires a PVR backend and client such as TV Headend**)
-- PVR feature to open and change channel by channel name, 
+- PVR feature to open and change channel by channel name,
+- PVR feature to change channel up, down, previous 
 - PVR feature to watch an active programme by name
 - PVR show TV guide and navigate guide
 - Show info - all media including PVR Channel
@@ -309,9 +310,9 @@ Select **Save Model** - get into the habit of using this on every item you chang
 
 ![Invocation Name](http://i.imgur.com/XHFZ6Wx.png)
 
-We should now have populated **INTENTS** with (60) items and **SLOT TYPES** with (17)
+We should now have populated **INTENTS** with (65) items and **SLOT TYPES** with (17)
 
-![Populated intents](http://i.imgur.com/FXcyw6T.png)
+![Populated intents](http://i.imgur.com/j5KdPP6.png)
 
 Now we need to populate the Slot Types to stop it complaining about errors (Slot types cannot be empty). This is where it gets personal though so a bit of work to do;
 
