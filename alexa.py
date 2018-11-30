@@ -1633,6 +1633,39 @@ def alexa_guide(kodi):
   response_text = render_template('short_confirm').encode('utf-8')
   return question(response_text)
 
+# Handle the WatchPreviousPVRChannel intent
+@ask.intent('WatchPreviousPVRChannel')
+@preflight_check
+def alexa_watch_previous_pvr_channel(kodi):
+  card_title = render_template('playing_pvr_channel').encode('utf-8')
+  log.info(card_title)
+
+  kodi.WatchPreviousPVRChannel()
+  response_text = render_template('short_confirm').encode('utf-8')
+  return question(response_text)
+
+# Handle the ChannelUp intent.
+@ask.intent('ChannelUp')
+@preflight_check
+def alexa_channelup(kodi):
+  card_title = render_template('playing_pvr_channel').encode('utf-8')
+  log.info(card_title)
+
+  kodi.ChannelUp()
+  response_text = render_template('short_confirm').encode('utf-8')
+  return question(response_text)
+
+# Handle the ChannelDown intent.
+@ask.intent('ChannelDown')
+@preflight_check
+def alexa_channeldown(kodi):
+  card_title = render_template('playing_pvr_channel').encode('utf-8')
+  log.info(card_title)
+
+  kodi.ChannelDown()
+  response_text = render_template('short_confirm').encode('utf-8')
+  return question(response_text)
+
 # Handle the ViewMovies intent.
 @ask.intent('ViewMovies')
 @preflight_check
@@ -2684,6 +2717,7 @@ def alexa_watch_pvr_channel(kodi, Channel):
 
   return statement(response_text).simple_card(card_title, response_text)
 
+
 # Handle the WatchPVRBroadcast intent
 @ask.intent('WatchPVRBroadcast')
 @preflight_check
@@ -2696,6 +2730,40 @@ def alexa_watch_pvr_broadcast(kodi, Broadcast):
     kodi.WatchPVRChannel(broadcast[0][0])
     action = render_template('playing_empty').encode('utf-8')
     response_text = render_template('playing_pvr_broadcast', heard_pvr_broadcast = broadcast).encode('utf-8')
+  else:
+    response_text = render_template('could_not_find_pvr_broadcast', heard_pvr_broadcast=broadcast).encode('utf-8')
+
+  return statement(response_text).simple_card(card_title, response_text)
+
+# Handle the RecordPVRChannel intent
+@ask.intent('RecordPVRChannel')
+@preflight_check
+def alexa_record_pvr_channel(kodi, Channel):
+  card_title = render_template('record_pvr_channel').encode('utf-8')
+  log.info(card_title) 
+  
+  channel = kodi.FindPVRChannel(Channel)
+  if channel:
+    kodi.RecordPVRChannel(channel[0][0])
+    action = render_template('record_empty').encode('utf-8')
+    response_text = render_template('record_pvr_channel', heard_pvr_channel=Channel).encode('utf-8')
+  else:
+    response_text = render_template('could_not_find_pvr_channel', heard_pvr_channel=Channel).encode('utf-8')
+
+  return statement(response_text).simple_card(card_title, response_text)
+
+# Handle the RecordPVRBroadcast intent
+@ask.intent('RecordPVRBroadcast')
+@preflight_check
+def alexa_Record_pvr_broadcast(kodi, Broadcast):
+  card_title = render_template('record_pvr_channel').encode('utf-8')
+  log.info(card_title)
+
+  broadcast = kodi.FindPVRBroadcast(Broadcast)
+  if broadcast:
+    kodi.RecordPVRChannel(broadcast[0][0])
+    action = render_template('record_empty').encode('utf-8')
+    response_text = render_template('record_pvr_broadcast', heard_pvr_broadcast = broadcast).encode('utf-8')
   else:
     response_text = render_template('could_not_find_pvr_broadcast', heard_pvr_broadcast=broadcast).encode('utf-8')
 
