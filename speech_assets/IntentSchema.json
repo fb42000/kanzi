@@ -413,12 +413,12 @@
                     "name": "WatchMusicVideo",
                     "slots": [
                         {
-                            "name": "MusicVideo",
-                            "type": "MUSICVIDEOS"
-                        },
-                        {
                             "name": "Artist",
                             "type": "MUSICARTISTS"
+                        },
+                        {
+                            "name": "MusicVideo",
+                            "type": "MUSICVIDEOS"
                         }
                     ],
                     "samples": [
@@ -860,8 +860,10 @@
                         }
                     ],
                     "samples": [
-                        "play channel {Channel}",
+                        "watch {Channel}",
+                        "play {Channel}",
                         "change to {Channel}",
+                        "play channel {Channel}",
                         "play live t. v. channel {Channel}",
                         "play live t. v. {Channel}",
                         "play p. v. r. channel {Channel}",
@@ -900,6 +902,8 @@
                         }
                     ],
                     "samples": [
+                        "watch {Broadcast}",
+                        "play {Broadcast}",
                         "change channel to {Broadcast}",
                         "play broadcast {Broadcast}",
                         "play live t. v. broadcast {Broadcast}",
@@ -928,55 +932,6 @@
                     ]
                 },
                 {
-                    "name": "RecordPVRChannel",
-                    "slots": [
-                        {
-                            "name": "Channel",
-                            "type": "CHANNELS"
-                        }
-                    ],
-                    "samples": [
-                        "Record channel {Channel}",
-                        "Record  {Channel}",
-                        "Record live t. v. channel {Channel}",
-                        "Record live t. v. {Channel}",
-                        "Record p. v. r. channel {Channel}",
-                        "Record p. v. r. {Channel}",
-                        "Record t. v. channel {Channel}",
-                        "Record t. v. {Channel}",
-                        "Record the channel {Channel}",
-                        "Record the live t. v. channel {Channel}",
-                        "Record the live t. v. {Channel}",
-                        "Record the p. v. r. channel {Channel}",
-                        "Record the p. v. r. {Channel}",
-                        "Record the t. v. channel {Channel}",
-                        "Record the t. v. {Channel}"
-                    ]
-                },
-                {
-                    "name": "RecordPVRBroadcast",
-                    "slots": [
-                        {
-                            "name": "Broadcast",
-                            "type": "BROADCASTS"
-                        }
-                    ],
-                    "samples": [
-                        "Record broadcast {Broadcast}",
-                        "Record live t. v. broadcast {Broadcast}",
-                        "Record live t. v. program {Broadcast}",
-                        "Record program {Broadcast}",
-                        "Record t. v. broadcast {Broadcast}",
-                        "Record t. v. program {Broadcast}",
-                        "Record the broadcast {Broadcast}",
-                        "Record the live t. v. broadcast {Broadcast}",
-                        "Record the live t. v. program {Broadcast}",
-                        "Record the program {Broadcast}",
-                        "Record the t. v. broadcast {Broadcast}",
-                        "Record the t. v. program {Broadcast}"
-                    ]
-                },
-                {
                     "name": "WatchPreviousPVRChannel",
                     "slots": [],
                     "samples": [
@@ -998,6 +953,50 @@
                         "previous channel",
                         "channel down"
                     ]
+                },
+                {
+                    "name": "ListenPVRRadioChannel",
+                    "slots": [
+                        {
+                            "name": "RadioChannel",
+                            "type": "RADIOCHANNELS"
+                        }
+                    ],
+                    "samples": [
+                        "play station {RadioChannel}",
+                        "listen to station {RadioChannel}",
+                        "listen to {RadioChannel}"
+                    ]
+                },
+                {
+                    "name": "RecordPVRChannel",
+                    "slots": [
+                        {
+                            "name": "RecordChannel",
+                            "type": "CHANNELS"
+                        }
+                    ],
+                    "samples": [
+                        "start recording {RecordChannel}",
+                        "record {RecordChannel}"
+                    ]
+                },
+                {
+                    "name": "RecordPVRBroadcast",
+                    "slots": [
+                        {
+                            "name": "RecordBroadcast",
+                            "type": "BROADCASTS"
+                        }
+                    ],
+                    "samples": [
+                        "start recording {RecordBroadcast}",
+                        "record {RecordBroadcast}"
+                    ]
+                },
+                {
+                    "name": "AMAZON.NavigateHomeIntent",
+                    "samples": []
                 }
             ],
             "types": [
@@ -1115,13 +1114,7 @@
                 },
                 {
                     "name": "MUSICVIDEOS",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "Empty"
-                            }
-                        }
-                    ]
+                    "values": []
                 },
                 {
                     "name": "MUSICVIDEOGENRES",
@@ -1150,26 +1143,6 @@
                     "values": []
                 },
                 {
-                    "name": "MUSICPLAYLISTS",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "Empty"
-                            }
-                        }
-                    ]
-                },
-                {
-                    "name": "VIDEOPLAYLISTS",
-                    "values": [
-                        {
-                            "name": {
-                                "value": "Empty"
-                            }
-                        }
-                    ]
-                },
-                {
                     "name": "ADDONS",
                     "values": []
                 },
@@ -1179,6 +1152,24 @@
                 },
                 {
                     "name": "BROADCASTS",
+                    "values": []
+                },
+                {
+                    "name": "RADIOCHANNELS",
+                    "values": [
+                        {
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "name": "RECORDCHANNEL",
+                    "values": []
+                },
+                {
+                    "name": "RECORDBROADCAST",
                     "values": []
                 }
             ]
