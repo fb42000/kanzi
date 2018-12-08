@@ -276,8 +276,12 @@ AddonGlobalSearch (find/search for) {Artist}
 
 WatchPVRBroadcast (play/watch) (/the) (/t. v./live t. v.) (program/broadcast) {Broadcast}
 WatchPVRBroadcast change channel to {Broadcast}
-WatchPVRChannel (play/watch/) (/the) (p. v. r./t. v./live t. v.) (/channel) {Channel}
-WatchPVRChannel (play/watch/change) (/the/to) channel {Channel}
+WatchPVRChannel (play/watch/listen/) (/the) (p. v. r./t. v./live t. v.) (/channel) {Channel}
+WatchPVRChannel (play/watch/change/listen) (/the/to) channel {Channel}
+RecordPVRBroadcast (record/) (/the) (/t. v./live t. v.) (program/broadcast) {Broadcast}
+RecordPVRBroadcast record program {Broadcast}
+RecordPVRChannel (record/) (/the) (p. v. r./t. v./live t. v.) (/channel) {Channel}
+RecordPVRChannel (record) (/the/to) channel {Channel}
 
 AMAZON.HelpIntent what can (you do/i ask you)
 AMAZON.HelpIntent things to try

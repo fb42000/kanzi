@@ -486,14 +486,6 @@ def find_and_play(kodi, needle, content=['video','audio'], shuffle=False, slot_h
       kodi.PlayMovie(movie[0][0])
       return render_template('playing_action', action=action, movie_name=movie[0][1]).encode('utf-8')
 
-  # Broadcast?
-  if 'video' in content and 'Program' not in slot_ignore and (slot_hint == 'unknown' or slot_hint == 'Program'):
-    broadcast = kodi.FindPVRBroadcast(needle)
-    if broadcast:
-      action = render_template('playing_empty').encode('utf-8')
-      kodi.WatchPVRChannel(broadcast[0][0])
-      return render_template('playing_pvr_broadcast', heard_pvr_broadcast = broadcast).encode('utf-8')
-       
   # Show?
   if 'video' in content and 'Show' not in slot_ignore and (slot_hint == 'unknown' or slot_hint == 'Show'):
     show = kodi.FindTvShow(needle)
@@ -2717,7 +2709,6 @@ def alexa_watch_pvr_channel(kodi, Channel):
 
   return statement(response_text).simple_card(card_title, response_text)
 
-
 # Handle the WatchPVRBroadcast intent
 @ask.intent('WatchPVRBroadcast')
 @preflight_check
@@ -2735,37 +2726,54 @@ def alexa_watch_pvr_broadcast(kodi, Broadcast):
 
   return statement(response_text).simple_card(card_title, response_text)
 
+# Handle the ListenPVRRadioChannel intent
+@ask.intent('ListenPVRRadioChannel')
+@preflight_check
+def alexa_listen_pvr_radio_channel(kodi, RadioChannel):
+  card_title = render_template('playing_pvr_radio_channel').encode('utf-8')
+  log.info(card_title) 
+  
+  radiochannel = kodi.FindPVRRadioChannel(RadioChannel)
+  if radiochannel:
+    kodi.ListenPVRRadioChannel(radiochannel[0][0])
+    action = render_template('playing_empty').encode('utf-8')
+    response_text = render_template('playing_pvr_radio_channel', heard_pvr_radio_channel=RadioChannel).encode('utf-8')
+  else:
+    response_text = render_template('could_not_find_pvr_radio_channel', heard_pvr_radio_channel=RadioChannel).encode('utf-8')
+
+  return statement(response_text).simple_card(card_title, response_text)
+
 # Handle the RecordPVRChannel intent
 @ask.intent('RecordPVRChannel')
 @preflight_check
-def alexa_record_pvr_channel(kodi, Channel):
-  card_title = render_template('record_pvr_channel').encode('utf-8')
+def alexa_record_pvr_record_channel(kodi, RecordChannel):
+  card_title = render_template('record_pvr_record_channel').encode('utf-8')
   log.info(card_title) 
   
-  channel = kodi.FindPVRChannel(Channel)
-  if channel:
-    kodi.RecordPVRChannel(channel[0][0])
+  recordchannel = kodi.FindPVRChannel(RecordChannel)
+  if recordchannel:
+    kodi.RecordPVRChannel(recordchannel[0][0])
     action = render_template('record_empty').encode('utf-8')
-    response_text = render_template('record_pvr_channel', heard_pvr_channel=Channel).encode('utf-8')
+    response_text = render_template('record_pvr_record_channel', heard_pvr_record_channel=RecordChannel).encode('utf-8')
   else:
-    response_text = render_template('could_not_find_pvr_channel', heard_pvr_channel=Channel).encode('utf-8')
+    response_text = render_template('could_not_find_pvr_channel', heard_pvr_channel=RecordChannel).encode('utf-8')
 
   return statement(response_text).simple_card(card_title, response_text)
 
 # Handle the RecordPVRBroadcast intent
 @ask.intent('RecordPVRBroadcast')
 @preflight_check
-def alexa_Record_pvr_broadcast(kodi, Broadcast):
-  card_title = render_template('record_pvr_channel').encode('utf-8')
+def alexa_record_pvr_record_broadcast(kodi, RecordBroadcast):
+  card_title = render_template('record_pvr_record_channel').encode('utf-8')
   log.info(card_title)
 
-  broadcast = kodi.FindPVRBroadcast(Broadcast)
-  if broadcast:
-    kodi.RecordPVRChannel(broadcast[0][0])
+  recordbroadcast = kodi.FindPVRBroadcast(RecordBroadcast)
+  if recordbroadcast:
+    kodi.RecordPVRChannel(recordbroadcast[0][0])
     action = render_template('record_empty').encode('utf-8')
-    response_text = render_template('record_pvr_broadcast', heard_pvr_broadcast = broadcast).encode('utf-8')
+    response_text = render_template('record_pvr_record_broadcast', heard_pvr_record_broadcast = recordbroadcast).encode('utf-8')
   else:
-    response_text = render_template('could_not_find_pvr_broadcast', heard_pvr_broadcast=broadcast).encode('utf-8')
+    response_text = render_template('could_not_find_pvr_broadcast', heard_pvr_broadcast=recordbroadcast).encode('utf-8')
 
   return statement(response_text).simple_card(card_title, response_text)
 

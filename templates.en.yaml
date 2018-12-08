@@ -48,6 +48,8 @@ could_not_find_pvr_channel: "Could not find a TV channel called {{ heard_pvr_cha
 
 could_not_find_pvr_broadcast: "Could not find a current TV Programme called {{ heard_pvr_broadcast }}"
 
+could_not_find_pvr_radio_channel: "Could not find a Radio station called {{ heard_pvr_radio_channel }}"
+
 could_not_find_musicvideo: "Could not find a music video called {{ heard_musicvideo }}"
 
 could_not_find_musicvideo_artist: "Could not find a music video called {{ heard_musicvideo }} by {{ heard_artist }}"
@@ -119,6 +121,14 @@ playing_empty: "Playing"
 playing_pvr_broadcast: "Playing {{ heard_pvr_broadcast }} on {{ channel }}"
 
 playing_pvr_channel: "Playing {{ heard_pvr_channel }}"
+
+playing_pvr_radio_channel: "Playing {{ heard_pvr_radio_channel }}"
+
+record_empty: "Recording" 
+
+record_pvr_record_broadcast: "Recording {{ heard_pvr_record_broadcast }} on {{ channel }}"
+
+record_pvr_record_channel: "Recording {{ heard_pvr_record_channel }}"
 
 resuming_empty: "Resuming"
 
