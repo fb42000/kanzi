@@ -311,7 +311,7 @@ Select **Save Model** - get into the habit of using this on every item you chang
 
 ![Invocation Name](http://i.imgur.com/XHFZ6Wx.png)
 
-We should now have populated **INTENTS** with (65) items and **SLOT TYPES** with (17)
+We should now have populated **INTENTS** with (67) items and **SLOT TYPES** with (18)
 
 ![Populated intents](http://i.imgur.com/j5KdPP6.png)
 
@@ -332,6 +332,7 @@ Movie Example Screenshot
 Select **Submit** on each one done and also **Save Model**
 
 Repeat for;
+
 SHOWS
 
 SHOW GENRES
@@ -358,9 +359,9 @@ ADDONS
 
 If you have no slot values to copy over, then you need to ensure you enter at least one Slot Value, "Empty" will be OK
 
-The two Slot Types you wont have from this method, or by running the python script, are for CHANNELS and BROADCAST. These are the PVR elements.
+The remaining Slot Types you wont have from this method, or by running the python script, are for CHANNELS and BROADCAST, RADIOCHANNELS, RECORDCHANNEL, RECORDBROADCAST. These are the PVR elements.
 
-I have included a csv file [uk_fta_channels.csv](https://github.com/fb42000/kanzi/blob/master/uk_fta_channels.csv)  for a list of UK FTA Channels that I use, this includes the main freeview and freesat channels in the UK.
+I have included a csv file [uk_fta_channels.csv](https://github.com/fb42000/kanzi/blob/master/uk_fta_channels.csv)  for a list of UK FTA TV Channels that I use, this includes the main freeview and freesat channels in the UK. Also a csv file of UK Radio stations (plus an IPTV station I listen to). These are processed in the same way as the TV channels.
 
 If the included file is of use to you, (ie you are in the UK and most if not all of your channels are on it) then skip this next section
 
@@ -375,6 +376,8 @@ http://my.kodi.ip.address:port/jsonrpc?request={"jsonrpc": "2.0", "method": "PVR
 You should be prompted with your kodi username and password (if not you haven't set up the earlier config process properly)
  
 This will return a JSON list of all of your channels, channel id's and channel labels (real life names). My working version is using TVHeadend as the backend PVR and doesn't pick up actual channel numbers although it is a work in progress for it to.
+
+For a list of your radio channels, replace "alltv" with "allradio" in the JSON request - the process is then the same.
 
 Next we can convert the above JSON list by using an online convertor. I found "convertcsv" website to work well however we cannot be responsible for the use of any external links. Copy and paste the full list output from the above JSON command into the convertor and create your csv text or an excel / ods .csv file.
 
@@ -396,6 +399,12 @@ Select **Save Model**
 Repeat this process for **BROADCASTS**
 
 Select **Save Model**
+
+The process is then the same if you wish to use the radio channel slot type, using the the values from uk_radio.csv or your own created by running "allradio" as above.
+
+The record channel and record broadcast slot types are still a work in progress - you can populate the slot values in the same method as above for Channels & Broadcast.
+
+If you have no need for the radio or record functions you will need to delete the slot types in the developer console.
 
 There should now be no error complaints from the developer console
 
