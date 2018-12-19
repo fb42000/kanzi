@@ -1,7 +1,7 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "telly",
+            "invocationName": "",
             "intents": [
                 {
                     "name": "PlayerSeekForward",
@@ -1002,17 +1002,35 @@
             "types": [
                 {
                     "name": "SHOWS",
-                    "values": []
+                      "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
-                {
+                 {
                     "name": "SHOWGENRES",
-                    "values": []
+                      "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
                 {
                     "name": "MOVIES",
-                    "values": []
+                      "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
-                {
+               {
                     "name": "MOVIEGENRES",
                     "values": [
                         {
@@ -1114,9 +1132,15 @@
                 },
                 {
                     "name": "MUSICVIDEOS",
-                    "values": []
+                      "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
-                {
+                 {
                     "name": "MUSICVIDEOGENRES",
                     "values": [
                         {
@@ -1128,33 +1152,75 @@
                 },
                 {
                     "name": "MUSICARTISTS",
-                    "values": []
+                    "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
                 {
                     "name": "MUSICALBUMS",
-                    "values": []
+                    "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
-                {
+                  {
                     "name": "MUSICSONGS",
-                    "values": []
+                     "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
-                {
+                 {
                     "name": "MUSICGENRES",
-                    "values": []
+                     "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
-                {
+                 {
                     "name": "ADDONS",
-                    "values": []
+                     "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
-                {
+                 {
                     "name": "CHANNELS",
-                    "values": []
+                    "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
-                {
+                  {
                     "name": "BROADCASTS",
-                    "values": []
+                     "values": [
+												{
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
-                {
+                 {
                     "name": "RADIOCHANNELS",
                     "values": [
                         {
@@ -1166,11 +1232,23 @@
                 },
                 {
                     "name": "RECORDCHANNEL",
-                    "values": []
+                     "values": [
+												{
+														"name": {
+                                "value": "Empty"
+                            }
+                        }
+											]
                 },
-                {
-                    "name": "RECORDBROADCAST",
-                    "values": []
+                 {
+                    "name": "RADIOCHANNELS",
+                    "values": [
+                       {
+                            "name": {
+                                "value": "Empty"
+                            }
+                        }
+                    ]
                 }
             ]
         }
