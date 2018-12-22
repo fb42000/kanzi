@@ -63,6 +63,7 @@ Additional features to Kanzi Master include; (**requires a PVR backend and clien
 - PVR feature to open and change channel by channel name,
 - PVR feature to change channel up, down, previous 
 - PVR feature to watch an active programme by name
+- PVR feature to record a channel or programme by name (**v18 nightly from 20/12/18 only due to previous bug)
 - Open and listen to radio channels through the PVR client
 - PVR show TV guide and navigate guide
 - Show info - all media including PVR Channel
