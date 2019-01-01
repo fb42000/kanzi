@@ -9,248 +9,165 @@ config = KodiConfigParser(config_file)
 
 kodi = Kodi(config)
 
-# Generate MUSICARTISTS Slot
-retrieved = kodi.GetMusicArtists()
 
-all = []
-
-if 'result' in retrieved and 'artists' in retrieved['result']:
-  for v in retrieved['result']['artists']:
-    name = kodi.sanitize_name(v['artist'], normalize=False)
-    name_stripped = kodi.sanitize_name(v['artist'], True)
-    all.append(name)
-    all.append(name_stripped)
-
-cleaned = list(set(all))
-cleaned = filter(None, cleaned)
-random.shuffle(cleaned)
-cleaned = cleaned[:250]
-
-gfile = open('MUSICARTISTS', 'w')
-for a in cleaned:
-  gfile.write("%s\n" % a.encode("utf-8"))
-gfile.close()
+def most_words(l=[]):
+  longest = 0
+  for s in l:
+    if len(s.split()) > longest:
+      longest = len(s.split())
+  return longest
 
 
-# Generate MUSICALBUMS Slot
-retrieved = kodi.GetAlbums()
-
-all = []
-
-if 'result' in retrieved and 'albums' in retrieved['result']:
-  for v in retrieved['result']['albums']:
-    name = kodi.sanitize_name(v['label'], normalize=False)
-    name_stripped = kodi.sanitize_name(v['label'], True)
-    all.append(name)
-    all.append(name_stripped)
-
-cleaned = list(set(all))
-cleaned = filter(None, cleaned)
-random.shuffle(cleaned)
-cleaned = cleaned[:500]
-
-gfile = open('MUSICALBUMS', 'w')
-for a in cleaned:
-  gfile.write("%s\n" % a.encode("utf-8"))
-gfile.close()
+def sort_by_words(l, longest):
+  distributed = []
+  for i in range(1, longest + 1):
+    dl = [s for s in l if len(s.split()) == i]
+    if dl:
+      distributed.append(dl)
+  return distributed
 
 
-# Generate MUSICSONGS Slot
-retrieved = kodi.GetSongs()
+def clean_results(resp, cat, key, limit=None):
+  if not limit:
+    try:
+      limit = kodi.config.get('alexa', 'slot_items_max')
+      if limit and limit != 'None':
+        limit = int(limit)
+      else:
+        limit = None
+    except:
+      limit = None
+  if not limit:
+    limit = 100
 
-all = []
+  cleaned = []
+  if 'result' in resp and cat in resp['result']:
+    for v in retrieved['result'][cat]:
+      name = kodi.sanitize_name(v[key], normalize=False)
+      # omit titles with digits, as Amazon never passes numbers as digits
+      if not re.search(r'\d', name):
+        cleaned.append(name)
 
-if 'result' in retrieved and 'songs' in retrieved['result']:
-  for v in retrieved['result']['songs']:
-    name = kodi.sanitize_name(v['label'], normalize=False)
-    name_stripped = kodi.sanitize_name(v['label'], True)
-    all.append(name)
-    all.append(name_stripped)
+  cleaned = {v.lower(): v for v in cleaned}.values()
+  cleaned = filter(None, cleaned)
+  random.shuffle(cleaned)
 
-cleaned = list(set(all))
-cleaned = filter(None, cleaned)
-random.shuffle(cleaned)
-cleaned = cleaned[:500]
+  # distribute strings evenly by number of words
+  if len(cleaned) > limit:
+    longest = most_words(cleaned)
+    distributed = sort_by_words(cleaned, longest)
+    if distributed:
+      total = 0
+      cleaned = []
+      while total < limit:
+        for l in distributed:
+          if l:
+            total += 1
+            cleaned.append(l.pop())
 
-gfile = open('MUSICSONGS', 'w')
-for a in cleaned:
-  gfile.write("%s\n" % a.encode("utf-8"))
-gfile.close()
+  # sort by number of words just for visibility
+  if cleaned:
+    longest = most_words(cleaned)
+    distributed = sort_by_words(cleaned, longest)
+    if distributed:
+      cleaned = []
+      for dl in distributed:
+        cleaned += [l for l in dl]
+
+  return cleaned[:limit]
+
+
+def write_file(filename, items=[]):
+  print 'Writing: %s' % (filename)
+  f = open(filename, 'w')
+  for a in items:
+    f.write("%s\n" % a.encode("utf-8"))
+  f.close()
 
 
 # Generate MUSICPLAYLISTS Slot
 retrieved = kodi.GetMusicPlaylists()
+cl = clean_results(retrieved, 'files', 'label')
+write_file('MUSICPLAYLISTS', cl)
 
-all = []
 
-if 'result' in retrieved and 'files' in retrieved['result']:
-  for v in retrieved['result']['files']:
-    name = kodi.sanitize_name(v['label'], normalize=False)
-    name_stripped = kodi.sanitize_name(v['label'], True)
-    all.append(name)
-    all.append(name_stripped)
+# Generate MUSICGENRES Slot
+retrieved = kodi.GetMusicGenres()
+cl = clean_results(retrieved, 'genres', 'label')
+write_file('MUSICGENRES', cl)
 
-cleaned = list(set(all))
-cleaned = filter(None, cleaned)
-random.shuffle(cleaned)
-cleaned = cleaned[:100]
 
-gfile = open('MUSICPLAYLISTS', 'w')
-for a in cleaned:
-  gfile.write("%s\n" % a.encode("utf-8"))
-gfile.close()
+# Generate MUSICARTISTS Slot
+retrieved = kodi.GetMusicArtists()
+cl = clean_results(retrieved, 'artists', 'artist')
+write_file('MUSICARTISTS', cl)
+
+
+# Generate MUSICALBUMS Slot
+retrieved = kodi.GetAlbums()
+cl = clean_results(retrieved, 'albums', 'label')
+write_file('MUSICALBUMS', cl)
+
+
+# Generate MUSICSONGS Slot
+retrieved = kodi.GetSongs()
+cl = clean_results(retrieved, 'songs', 'label')
+write_file('MUSICSONGS', cl)
 
 
 # Generate VIDEOPLAYLISTS Slot
 retrieved = kodi.GetVideoPlaylists()
-
-all = []
-
-if 'result' in retrieved and 'files' in retrieved['result']:
-  for v in retrieved['result']['files']:
-    name = kodi.sanitize_name(v['label'], normalize=False)
-    name_stripped = kodi.sanitize_name(v['label'], True)
-    all.append(name)
-    all.append(name_stripped)
-
-cleaned = list(set(all))
-cleaned = filter(None, cleaned)
-random.shuffle(cleaned)
-cleaned = cleaned[:100]
-
-gfile = open('VIDEOPLAYLISTS', 'w')
-for a in cleaned:
-  gfile.write("%s\n" % a.encode("utf-8"))
-gfile.close()
+cl = clean_results(retrieved, 'files', 'label')
+write_file('VIDEOPLAYLISTS', cl)
 
 
 # Generate MOVIEGENRES Slot
-retrieved = kodi.GetMovieGenres()
+retrieved = kodi.GetVideoGenres()
+cl = clean_results(retrieved, 'genres', 'label')
+write_file('MOVIEGENRES', cl)
 
-all = []
 
-if 'result' in retrieved and 'genres' in retrieved['result']:
-  for v in retrieved['result']['genres']:
-    name = kodi.sanitize_name(v['label'], normalize=False)
-    name_stripped = kodi.sanitize_name(v['label'], True)
-    all.append(name)
-    all.append(name_stripped)
+# Generate SHOWGENRES Slot
+retrieved = kodi.GetVideoGenres('tvshow')
+cl = clean_results(retrieved, 'genres', 'label')
+write_file('SHOWGENRES', cl)
 
-cleaned = list(set(all))
-cleaned = filter(None, cleaned)
-random.shuffle(cleaned)
-cleaned = cleaned[:100]
 
-gfile = open('MOVIEGENRES', 'w')
-for a in cleaned:
-  gfile.write("%s\n" % a.encode("utf-8"))
-gfile.close()
+# Generate MUSICVIDEOGENRES Slot
+retrieved = kodi.GetVideoGenres('musicvideo')
+cl = clean_results(retrieved, 'genres', 'label')
+write_file('MUSICVIDEOGENRES', cl)
 
 
 # Generate MOVIES Slot
 retrieved = kodi.GetMovies()
-
-all = []
-
-if 'result' in retrieved and 'movies' in retrieved['result']:
-  for v in retrieved['result']['movies']:
-    name = kodi.sanitize_name(v['label'], normalize=False)
-    name_stripped = kodi.sanitize_name(v['label'], True)
-    all.append(name)
-    all.append(name_stripped)
-
-cleaned = list(set(all))
-cleaned = filter(None, cleaned)
-random.shuffle(cleaned)
-cleaned = cleaned[:200]
-
-gfile = open('MOVIES', 'w')
-for a in cleaned:
-  gfile.write("%s\n" % a.encode("utf-8"))
-gfile.close()
+cl = clean_results(retrieved, 'movies', 'label')
+write_file('MOVIES', cl)
 
 
 # Generate SHOWS Slot
-retrieved = kodi.GetTvShows()
+retrieved = kodi.GetShows()
+cl = clean_results(retrieved, 'tvshows', 'label')
+write_file('SHOWS', cl)
 
-all = []
 
-if 'result' in retrieved and 'tvshows' in retrieved['result']:
-  for v in retrieved['result']['tvshows']:
-    name = kodi.sanitize_name(v['label'], normalize=False)
-    name_stripped = kodi.sanitize_name(v['label'], True)
-    all.append(name)
-    all.append(name_stripped)
+# Generate MUSICVIDEOS Slot
+retrieved = kodi.GetMusicVideos()
+cl = clean_results(retrieved, 'musicvideos', 'label')
+write_file('MUSICVIDEOS', cl)
 
-cleaned = list(set(all))
-cleaned = filter(None, cleaned)
-random.shuffle(cleaned)
-cleaned = cleaned[:100]
 
-gfile = open('SHOWS', 'w')
-for a in cleaned:
-  gfile.write("%s\n" % a.encode("utf-8"))
-gfile.close()
+# Generate CHANNELS Slot
+retrieved = kodi.GetPVRChannels()
+cl = clean_results(retrieved, 'channels', 'label')
+write_file('CHANNELS', cl)
 
 
 # Generate ADDONS Slot
-all = []
-
+retrieved = {'result': {'addons': []}}
 for content in ['video', 'audio', 'image', 'executable']:
-  retrieved = kodi.GetAddons(content)
-
-  if 'result' in retrieved and 'addons' in retrieved['result']:
-    for v in retrieved['result']['addons']:
-      name = kodi.sanitize_name(v['name'], normalize=False)
-      name_stripped = kodi.sanitize_name(v['name'], True)
-      all.append(name)
-      all.append(name_stripped)
-
-cleaned = list(set(all))
-cleaned = filter(None, cleaned)
-random.shuffle(cleaned)
-cleaned = cleaned[:100]
-
-gfile = open('ADDONS', 'w')
-for a in cleaned:
-  gfile.write("%s\n" % a.encode("utf-8"))
-gfile.close()
-
-# Generetate CHANNELS Slot
-retrieved = kodi.GetPVRChannels()
-
-all = []
-
-if 'result' in retrieved and 'channels' in retrieved['result']:
-  for v in retrieved['result']['channels']:
-    ascii_name = v['sanitized_label'].encode('ascii', 'replace')
-    all.append(ascii_name.encode('utf-8').strip())
-
-deduped = list(set(all))
-
-gfile = open('CHANNELS', 'w')
-for a in deduped:
-  gfile.write("%s\n" % a)
-gfile.close()
-
-# Generetate BROADCASTS Slot
-retrieved = kodi.GetPVRChannels()
-      
-all = []
-      
-if 'result' in retrieved and 'channels' in retrieved['result']:
-  for v in retrieved['result']['channels']:
-    channelid = v['channelid']
-    broadcasts = kodi.GetPVRBroadcasts(channelid)
-    if 'result' in broadcasts and 'broadcasts' in broadcasts['result']:
-      for broadcast in broadcasts['result']['broadcasts']:
-        ascii_name = broadcast['label'].encode('ascii', 'replace')
-        removed_paren = re.sub(r'\([^)]*\)', '', ascii_name).rstrip().lower().translate(None, string.punctuation)
-        all.append(removed_paren.encode('utf-8').strip())
-
-deduped = list(set(all))
-
-gfile = open('BROADCASTS', 'w')
-for a in deduped:
-  gfile.write("%s\n" % a)
-gfile.close()
+  r = kodi.GetAddons(content)
+  if 'result' in r and 'addons' in r['result']:
+    retrieved['result']['addons'] += r['result']['addons']
+cl = clean_results(retrieved, 'addons', 'name')
+write_file('ADDONS', cl)
