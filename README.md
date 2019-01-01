@@ -320,12 +320,11 @@ Now we need to populate the Slot Types to stop it complaining about errors (Slot
 
 For each slot type it's best to insert all your content, i.e. Movies will need to be filled with all your library movies. This allows the skill to recognise what it is looking for.
 
-Handy as there is an easy way to do this, thanks to the process below taken from the original kodi-voice repo or by running the updated [generate_custom_slots.py](https://github.com/fb42000/kanzi/blob/master/generate_custom_slots.py) ;
+Handy as there is an easy way to do this, thanks to the either the web app created by the original dev [here.](https://slot-generator.herokuapp.com/)  or by running the updated [generate_custom_slots.py](https://github.com/fb42000/kanzi/blob/master/generate_custom_slots.py) ;
 
-"To make it as easy as possible, I wrote a little webapp that will give you the information you need: [here.](https://slot-generator.herokuapp.com/) This does however limit the values to a max 100 and therefore for larger libraries running the python script from within the site packages folder alongside a copy of your kodi.config will create a fuller list of slot values to import. This will create txt files with the relevant information which you can then bulk import to each slot value in the developer console. If one of your slots is empty, you can just enter the word 'Empty' or something so that it'll save."
+The web app does however limit the values to a max 100 and therefore for larger libraries running the python script from within the site packages folder alongside a copy of your kodi.config will create a fuller list of slot values to import. This will create txt files with the relevant information which you can then bulk import to each slot value in the developer console. If one of your slots is empty, you can just enter the word 'Empty' or something so that it'll save."
 
-
-I found the web app the easiest as you have all the info needed from creating the kodi.config file earlier. Once it has run you can select and copy each bulk output from each slot type, copy and pasting them into the Bulk Edit option on each slot type window
+ Once it has run you can select and copy each bulk output from each slot type, copy and pasting them as plain text into the Bulk Edit option on each slot type window
 
 Movie Example Screenshot
 ![Slot types](http://i.imgur.com/gUskp0o.png)
