@@ -1,8 +1,779 @@
 {
     "interactionModel": {
         "languageModel": {
-            "invocationName": "",
+            "invocationName": "telly",
             "intents": [
+               {
+                    "name": "RecommendVideo",
+                    "slots": [],
+                    "samples": [
+                        "recommend something to watch",
+                        "suggest something to watch"
+                    ]
+                },
+                {
+                    "name": "RecommendAudio",
+                    "slots": [],
+                    "samples": [
+                        "recommend something to listen to",
+                        "suggest something to listen to"
+                    ]
+                },
+                {
+                    "name": "RecommendMovie",
+                    "slots": [
+                        {
+                            "name": "MovieGenre",
+                            "type": "MOVIEGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "recommend a film",
+                        "recommend a film to watch",
+                        "recommend a movie",
+                        "recommend a movie to watch",
+                        "recommend a {MovieGenre} film",
+                        "recommend a {MovieGenre} film to watch",
+                        "recommend a {MovieGenre} movie",
+                        "recommend a {MovieGenre} movie to watch",
+                        "recommend film",
+                        "recommend film to watch",
+                        "recommend films",
+                        "recommend films to watch",
+                        "recommend movie",
+                        "recommend movie to watch",
+                        "recommend movies",
+                        "recommend movies to watch",
+                        "recommend some films",
+                        "recommend some films to watch",
+                        "recommend some movies",
+                        "recommend some movies to watch",
+                        "recommend some {MovieGenre} films",
+                        "recommend some {MovieGenre} films to watch",
+                        "recommend some {MovieGenre} movies",
+                        "recommend some {MovieGenre} movies to watch",
+                        "recommend {MovieGenre} film",
+                        "recommend {MovieGenre} film to watch",
+                        "recommend {MovieGenre} films",
+                        "recommend {MovieGenre} films to watch",
+                        "recommend {MovieGenre} movie",
+                        "recommend {MovieGenre} movie to watch",
+                        "recommend {MovieGenre} movies",
+                        "recommend {MovieGenre} movies to watch",
+                        "suggest a film",
+                        "suggest a film to watch",
+                        "suggest a movie",
+                        "suggest a movie to watch",
+                        "suggest a {MovieGenre} film",
+                        "suggest a {MovieGenre} film to watch",
+                        "suggest a {MovieGenre} movie",
+                        "suggest a {MovieGenre} movie to watch",
+                        "suggest film",
+                        "suggest film to watch",
+                        "suggest films",
+                        "suggest films to watch",
+                        "suggest movie",
+                        "suggest movie to watch",
+                        "suggest movies",
+                        "suggest movies to watch",
+                        "suggest some films",
+                        "suggest some films to watch",
+                        "suggest some movies",
+                        "suggest some movies to watch",
+                        "suggest some {MovieGenre} films",
+                        "suggest some {MovieGenre} films to watch",
+                        "suggest some {MovieGenre} movies",
+                        "suggest some {MovieGenre} movies to watch",
+                        "suggest {MovieGenre} film",
+                        "suggest {MovieGenre} film to watch",
+                        "suggest {MovieGenre} films",
+                        "suggest {MovieGenre} films to watch",
+                        "suggest {MovieGenre} movie",
+                        "suggest {MovieGenre} movie to watch",
+                        "suggest {MovieGenre} movies",
+                        "suggest {MovieGenre} movies to watch"
+                    ]
+                },
+                {
+                    "name": "RecommendShow",
+                    "slots": [
+                        {
+                            "name": "ShowGenre",
+                            "type": "SHOWGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "recommend a show",
+                        "recommend a show to watch",
+                        "recommend a t. v. show",
+                        "recommend a t. v. show to watch",
+                        "recommend a {ShowGenre} show",
+                        "recommend a {ShowGenre} show to watch",
+                        "recommend a {ShowGenre} t. v. show",
+                        "recommend a {ShowGenre} t. v. show to watch",
+                        "recommend show",
+                        "recommend show to watch",
+                        "recommend shows",
+                        "recommend shows to watch",
+                        "recommend some shows",
+                        "recommend some shows to watch",
+                        "recommend some t. v. shows",
+                        "recommend some t. v. shows to watch",
+                        "recommend some {ShowGenre} shows",
+                        "recommend some {ShowGenre} shows to watch",
+                        "recommend some {ShowGenre} t. v. shows",
+                        "recommend some {ShowGenre} t. v. shows to watch",
+                        "recommend t. v. show",
+                        "recommend t. v. show to watch",
+                        "recommend t. v. shows",
+                        "recommend t. v. shows to watch",
+                        "recommend {ShowGenre} show",
+                        "recommend {ShowGenre} show to watch",
+                        "recommend {ShowGenre} shows",
+                        "recommend {ShowGenre} shows to watch",
+                        "recommend {ShowGenre} t. v. show",
+                        "recommend {ShowGenre} t. v. show to watch",
+                        "recommend {ShowGenre} t. v. shows",
+                        "recommend {ShowGenre} t. v. shows to watch",
+                        "suggest a show",
+                        "suggest a show to watch",
+                        "suggest a t. v. show",
+                        "suggest a t. v. show to watch",
+                        "suggest a {ShowGenre} show",
+                        "suggest a {ShowGenre} show to watch",
+                        "suggest a {ShowGenre} t. v. show",
+                        "suggest a {ShowGenre} t. v. show to watch",
+                        "suggest show",
+                        "suggest show to watch",
+                        "suggest shows",
+                        "suggest shows to watch",
+                        "suggest some shows",
+                        "suggest some shows to watch",
+                        "suggest some t. v. shows",
+                        "suggest some t. v. shows to watch",
+                        "suggest some {ShowGenre} shows",
+                        "suggest some {ShowGenre} shows to watch",
+                        "suggest some {ShowGenre} t. v. shows",
+                        "suggest some {ShowGenre} t. v. shows to watch",
+                        "suggest t. v. show",
+                        "suggest t. v. show to watch",
+                        "suggest t. v. shows",
+                        "suggest t. v. shows to watch",
+                        "suggest {ShowGenre} show",
+                        "suggest {ShowGenre} show to watch",
+                        "suggest {ShowGenre} shows",
+                        "suggest {ShowGenre} shows to watch",
+                        "suggest {ShowGenre} t. v. show",
+                        "suggest {ShowGenre} t. v. show to watch",
+                        "suggest {ShowGenre} t. v. shows",
+                        "suggest {ShowGenre} t. v. shows to watch"
+                    ]
+                },
+                {
+                    "name": "RecommendEpisode",
+                    "slots": [
+                        {
+                            "name": "ShowGenre",
+                            "type": "SHOWGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "recommend a t. v. episode",
+                        "recommend a t. v. episode to watch",
+                        "recommend a {ShowGenre} episode",
+                        "recommend a {ShowGenre} episode to watch",
+                        "recommend a {ShowGenre} t. v. episode",
+                        "recommend a {ShowGenre} t. v. episode to watch",
+                        "recommend an episode",
+                        "recommend an episode to watch",
+                        "recommend episode",
+                        "recommend episode to watch",
+                        "recommend episodes",
+                        "recommend episodes to watch",
+                        "recommend some episodes",
+                        "recommend some episodes to watch",
+                        "recommend some t. v. episodes",
+                        "recommend some t. v. episodes to watch",
+                        "recommend some {ShowGenre} episodes",
+                        "recommend some {ShowGenre} episodes to watch",
+                        "recommend some {ShowGenre} t. v. episodes",
+                        "recommend some {ShowGenre} t. v. episodes to watch",
+                        "recommend t. v. episode",
+                        "recommend t. v. episode to watch",
+                        "recommend t. v. episodes",
+                        "recommend t. v. episodes to watch",
+                        "recommend {ShowGenre} episode",
+                        "recommend {ShowGenre} episode to watch",
+                        "recommend {ShowGenre} episodes",
+                        "recommend {ShowGenre} episodes to watch",
+                        "recommend {ShowGenre} t. v. episode",
+                        "recommend {ShowGenre} t. v. episode to watch",
+                        "recommend {ShowGenre} t. v. episodes",
+                        "recommend {ShowGenre} t. v. episodes to watch",
+                        "suggest a t. v. episode",
+                        "suggest a t. v. episode to watch",
+                        "suggest a {ShowGenre} episode",
+                        "suggest a {ShowGenre} episode to watch",
+                        "suggest a {ShowGenre} t. v. episode",
+                        "suggest a {ShowGenre} t. v. episode to watch",
+                        "suggest an episode",
+                        "suggest an episode to watch",
+                        "suggest episode",
+                        "suggest episode to watch",
+                        "suggest episodes",
+                        "suggest episodes to watch",
+                        "suggest some episodes",
+                        "suggest some episodes to watch",
+                        "suggest some t. v. episodes",
+                        "suggest some t. v. episodes to watch",
+                        "suggest some {ShowGenre} episodes",
+                        "suggest some {ShowGenre} episodes to watch",
+                        "suggest some {ShowGenre} t. v. episodes",
+                        "suggest some {ShowGenre} t. v. episodes to watch",
+                        "suggest t. v. episode",
+                        "suggest t. v. episode to watch",
+                        "suggest t. v. episodes",
+                        "suggest t. v. episodes to watch",
+                        "suggest {ShowGenre} episode",
+                        "suggest {ShowGenre} episode to watch",
+                        "suggest {ShowGenre} episodes",
+                        "suggest {ShowGenre} episodes to watch",
+                        "suggest {ShowGenre} t. v. episode",
+                        "suggest {ShowGenre} t. v. episode to watch",
+                        "suggest {ShowGenre} t. v. episodes",
+                        "suggest {ShowGenre} t. v. episodes to watch"
+                    ]
+                },
+                {
+                    "name": "RecommendMusicVideo",
+                    "slots": [
+                        {
+                            "name": "MusicVideoGenre",
+                            "type": "MUSICVIDEOGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "recommend a music video",
+                        "recommend a music video to listen to",
+                        "recommend a music video to watch",
+                        "recommend a {MusicVideoGenre} music video",
+                        "recommend a {MusicVideoGenre} music video to listen to",
+                        "recommend a {MusicVideoGenre} music video to watch",
+                        "recommend music video",
+                        "recommend music video to listen to",
+                        "recommend music video to watch",
+                        "recommend music videos",
+                        "recommend music videos to listen to",
+                        "recommend music videos to watch",
+                        "recommend some music videos",
+                        "recommend some music videos to listen to",
+                        "recommend some music videos to watch",
+                        "recommend some {MusicVideoGenre} music videos",
+                        "recommend some {MusicVideoGenre} music videos to listen to",
+                        "recommend some {MusicVideoGenre} music videos to watch",
+                        "recommend {MusicVideoGenre} music video",
+                        "recommend {MusicVideoGenre} music video to listen to",
+                        "recommend {MusicVideoGenre} music video to watch",
+                        "recommend {MusicVideoGenre} music videos",
+                        "recommend {MusicVideoGenre} music videos to listen to",
+                        "recommend {MusicVideoGenre} music videos to watch",
+                        "suggest a music video",
+                        "suggest a music video to listen to",
+                        "suggest a music video to watch",
+                        "suggest a {MusicVideoGenre} music video",
+                        "suggest a {MusicVideoGenre} music video to listen to",
+                        "suggest a {MusicVideoGenre} music video to watch",
+                        "suggest music video",
+                        "suggest music video to listen to",
+                        "suggest music video to watch",
+                        "suggest music videos",
+                        "suggest music videos to listen to",
+                        "suggest music videos to watch",
+                        "suggest some music videos",
+                        "suggest some music videos to listen to",
+                        "suggest some music videos to watch",
+                        "suggest some {MusicVideoGenre} music videos",
+                        "suggest some {MusicVideoGenre} music videos to listen to",
+                        "suggest some {MusicVideoGenre} music videos to watch",
+                        "suggest {MusicVideoGenre} music video",
+                        "suggest {MusicVideoGenre} music video to listen to",
+                        "suggest {MusicVideoGenre} music video to watch",
+                        "suggest {MusicVideoGenre} music videos",
+                        "suggest {MusicVideoGenre} music videos to listen to",
+                        "suggest {MusicVideoGenre} music videos to watch"
+                    ]
+                },
+                {
+                    "name": "RecommendArtist",
+                    "slots": [
+                        {
+                            "name": "MusicGenre",
+                            "type": "MUSICGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "recommend a band",
+                        "recommend a band to listen to",
+                        "recommend a music artist",
+                        "recommend a music artist to listen to",
+                        "recommend a musician",
+                        "recommend a musician to listen to",
+                        "recommend a {MusicGenre} artist",
+                        "recommend a {MusicGenre} artist to listen to",
+                        "recommend a {MusicGenre} band",
+                        "recommend a {MusicGenre} band to listen to",
+                        "recommend a {MusicGenre} music artist",
+                        "recommend a {MusicGenre} music artist to listen to",
+                        "recommend a {MusicGenre} musician",
+                        "recommend a {MusicGenre} musician to listen to",
+                        "recommend an artist",
+                        "recommend an artist to listen to",
+                        "recommend artist",
+                        "recommend artist to listen to",
+                        "recommend artists",
+                        "recommend artists to listen to",
+                        "recommend band",
+                        "recommend band to listen to",
+                        "recommend bands",
+                        "recommend bands to listen to",
+                        "recommend music artist",
+                        "recommend music artist to listen to",
+                        "recommend music artists",
+                        "recommend music artists to listen to",
+                        "recommend musician",
+                        "recommend musician to listen to",
+                        "recommend musicians",
+                        "recommend musicians to listen to",
+                        "recommend some artists",
+                        "recommend some artists to listen to",
+                        "recommend some bands",
+                        "recommend some bands to listen to",
+                        "recommend some music artists",
+                        "recommend some music artists to listen to",
+                        "recommend some musicians",
+                        "recommend some musicians to listen to",
+                        "recommend some {MusicGenre} artists",
+                        "recommend some {MusicGenre} artists to listen to",
+                        "recommend some {MusicGenre} bands",
+                        "recommend some {MusicGenre} bands to listen to",
+                        "recommend some {MusicGenre} music artists",
+                        "recommend some {MusicGenre} music artists to listen to",
+                        "recommend some {MusicGenre} musicians",
+                        "recommend some {MusicGenre} musicians to listen to",
+                        "recommend {MusicGenre} artist",
+                        "recommend {MusicGenre} artist to listen to",
+                        "recommend {MusicGenre} artists",
+                        "recommend {MusicGenre} artists to listen to",
+                        "recommend {MusicGenre} band",
+                        "recommend {MusicGenre} band to listen to",
+                        "recommend {MusicGenre} bands",
+                        "recommend {MusicGenre} bands to listen to",
+                        "recommend {MusicGenre} music artist",
+                        "recommend {MusicGenre} music artist to listen to",
+                        "recommend {MusicGenre} music artists",
+                        "recommend {MusicGenre} music artists to listen to",
+                        "recommend {MusicGenre} musician",
+                        "recommend {MusicGenre} musician to listen to",
+                        "recommend {MusicGenre} musicians",
+                        "recommend {MusicGenre} musicians to listen to",
+                        "suggest a band",
+                        "suggest a band to listen to",
+                        "suggest a music artist",
+                        "suggest a music artist to listen to",
+                        "suggest a musician",
+                        "suggest a musician to listen to",
+                        "suggest a {MusicGenre} artist",
+                        "suggest a {MusicGenre} artist to listen to",
+                        "suggest a {MusicGenre} band",
+                        "suggest a {MusicGenre} band to listen to",
+                        "suggest a {MusicGenre} music artist",
+                        "suggest a {MusicGenre} music artist to listen to",
+                        "suggest a {MusicGenre} musician",
+                        "suggest a {MusicGenre} musician to listen to",
+                        "suggest an artist",
+                        "suggest an artist to listen to",
+                        "suggest artist",
+                        "suggest artist to listen to",
+                        "suggest artists",
+                        "suggest artists to listen to",
+                        "suggest band",
+                        "suggest band to listen to",
+                        "suggest bands",
+                        "suggest bands to listen to",
+                        "suggest music artist",
+                        "suggest music artist to listen to",
+                        "suggest music artists",
+                        "suggest music artists to listen to",
+                        "suggest musician",
+                        "suggest musician to listen to",
+                        "suggest musicians",
+                        "suggest musicians to listen to",
+                        "suggest some artists",
+                        "suggest some artists to listen to",
+                        "suggest some bands",
+                        "suggest some bands to listen to",
+                        "suggest some music artists",
+                        "suggest some music artists to listen to",
+                        "suggest some musicians",
+                        "suggest some musicians to listen to",
+                        "suggest some {MusicGenre} artists",
+                        "suggest some {MusicGenre} artists to listen to",
+                        "suggest some {MusicGenre} bands",
+                        "suggest some {MusicGenre} bands to listen to",
+                        "suggest some {MusicGenre} music artists",
+                        "suggest some {MusicGenre} music artists to listen to",
+                        "suggest some {MusicGenre} musicians",
+                        "suggest some {MusicGenre} musicians to listen to",
+                        "suggest {MusicGenre} artist",
+                        "suggest {MusicGenre} artist to listen to",
+                        "suggest {MusicGenre} artists",
+                        "suggest {MusicGenre} artists to listen to",
+                        "suggest {MusicGenre} band",
+                        "suggest {MusicGenre} band to listen to",
+                        "suggest {MusicGenre} bands",
+                        "suggest {MusicGenre} bands to listen to",
+                        "suggest {MusicGenre} music artist",
+                        "suggest {MusicGenre} music artist to listen to",
+                        "suggest {MusicGenre} music artists",
+                        "suggest {MusicGenre} music artists to listen to",
+                        "suggest {MusicGenre} musician",
+                        "suggest {MusicGenre} musician to listen to",
+                        "suggest {MusicGenre} musicians",
+                        "suggest {MusicGenre} musicians to listen to"
+                    ]
+                },
+                {
+                    "name": "RecommendAlbum",
+                    "slots": [
+                        {
+                            "name": "MusicGenre",
+                            "type": "MUSICGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "recommend a {MusicGenre} album",
+                        "recommend a {MusicGenre} album to listen to",
+                        "recommend album",
+                        "recommend album to listen to",
+                        "recommend albums",
+                        "recommend albums to listen to",
+                        "recommend an album",
+                        "recommend an album to listen to",
+                        "recommend some albums",
+                        "recommend some albums to listen to",
+                        "recommend some {MusicGenre} albums",
+                        "recommend some {MusicGenre} albums to listen to",
+                        "recommend {MusicGenre} album",
+                        "recommend {MusicGenre} album to listen to",
+                        "recommend {MusicGenre} albums",
+                        "recommend {MusicGenre} albums to listen to",
+                        "suggest a {MusicGenre} album",
+                        "suggest a {MusicGenre} album to listen to",
+                        "suggest album",
+                        "suggest album to listen to",
+                        "suggest albums",
+                        "suggest albums to listen to",
+                        "suggest an album",
+                        "suggest an album to listen to",
+                        "suggest some albums",
+                        "suggest some albums to listen to",
+                        "suggest some {MusicGenre} albums",
+                        "suggest some {MusicGenre} albums to listen to",
+                        "suggest {MusicGenre} album",
+                        "suggest {MusicGenre} album to listen to",
+                        "suggest {MusicGenre} albums",
+                        "suggest {MusicGenre} albums to listen to"
+                    ]
+                },
+                {
+                    "name": "RecommendSong",
+                    "slots": [
+                        {
+                            "name": "MusicGenre",
+                            "type": "MUSICGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "recommend a song",
+                        "recommend a song to listen to",
+                        "recommend a {MusicGenre} song",
+                        "recommend a {MusicGenre} song to listen to",
+                        "recommend music",
+                        "recommend music to listen to",
+                        "recommend some music",
+                        "recommend some music to listen to",
+                        "recommend some songs",
+                        "recommend some songs to listen to",
+                        "recommend some {MusicGenre} music",
+                        "recommend some {MusicGenre} music to listen to",
+                        "recommend some {MusicGenre} songs",
+                        "recommend some {MusicGenre} songs to listen to",
+                        "recommend song",
+                        "recommend song to listen to",
+                        "recommend songs",
+                        "recommend songs to listen to",
+                        "recommend {MusicGenre} music",
+                        "recommend {MusicGenre} music to listen to",
+                        "recommend {MusicGenre} song",
+                        "recommend {MusicGenre} song to listen to",
+                        "recommend {MusicGenre} songs",
+                        "recommend {MusicGenre} songs to listen to",
+                        "suggest a song",
+                        "suggest a song to listen to",
+                        "suggest a {MusicGenre} song",
+                        "suggest a {MusicGenre} song to listen to",
+                        "suggest music",
+                        "suggest music to listen to",
+                        "suggest some music",
+                        "suggest some music to listen to",
+                        "suggest some songs",
+                        "suggest some songs to listen to",
+                        "suggest some {MusicGenre} music",
+                        "suggest some {MusicGenre} music to listen to",
+                        "suggest some {MusicGenre} songs",
+                        "suggest some {MusicGenre} songs to listen to",
+                        "suggest song",
+                        "suggest song to listen to",
+                        "suggest songs",
+                        "suggest songs to listen to",
+                        "suggest {MusicGenre} music",
+                        "suggest {MusicGenre} music to listen to",
+                        "suggest {MusicGenre} song",
+                        "suggest {MusicGenre} song to listen to",
+                        "suggest {MusicGenre} songs",
+                        "suggest {MusicGenre} songs to listen to"
+                    ]
+                },
+                {
+                    "name": "WhatNewAlbums",
+                    "slots": [],
+                    "samples": [
+                        "are there new albums",
+                        "are there new albums to listen to",
+                        "do i have a new album",
+                        "do i have a new album to listen to",
+                        "do i have new albums",
+                        "do i have new albums to listen to",
+                        "if there are new albums",
+                        "if there are new albums to listen to",
+                        "if there is a new album",
+                        "if there is a new album to listen to",
+                        "is there a new album",
+                        "is there a new album to listen to",
+                        "what new albums are there",
+                        "what new albums are there to listen to",
+                        "what new albums do i have",
+                        "what new albums do i have to listen to"
+                    ]
+                },
+                {
+                    "name": "WhatNewMovies",
+                    "slots": [
+                        {
+                            "name": "MovieGenre",
+                            "type": "MOVIEGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "are there any new {MovieGenre} films",
+                        "are there any new {MovieGenre} films to watch",
+                        "are there any new {MovieGenre} movies",
+                        "are there any new {MovieGenre} movies to watch",
+                        "are there new films",
+                        "are there new films to watch",
+                        "are there new movies",
+                        "are there new movies to watch",
+                        "are there new {MovieGenre} films",
+                        "are there new {MovieGenre} films to watch",
+                        "are there new {MovieGenre} movies",
+                        "are there new {MovieGenre} movies to watch",
+                        "are there some new {MovieGenre} films",
+                        "are there some new {MovieGenre} films to watch",
+                        "are there some new {MovieGenre} movies",
+                        "are there some new {MovieGenre} movies to watch",
+                        "do i have a new film",
+                        "do i have a new film to watch",
+                        "do i have a new movie",
+                        "do i have a new movie to watch",
+                        "do i have a new {MovieGenre} film",
+                        "do i have a new {MovieGenre} film to watch",
+                        "do i have a new {MovieGenre} movie",
+                        "do i have a new {MovieGenre} movie to watch",
+                        "do i have any new {MovieGenre} films",
+                        "do i have any new {MovieGenre} films to watch",
+                        "do i have any new {MovieGenre} movies",
+                        "do i have any new {MovieGenre} movies to watch",
+                        "do i have new films",
+                        "do i have new films to watch",
+                        "do i have new movies",
+                        "do i have new movies to watch",
+                        "do i have new {MovieGenre} films",
+                        "do i have new {MovieGenre} films to watch",
+                        "do i have new {MovieGenre} movies",
+                        "do i have new {MovieGenre} movies to watch",
+                        "do i have some new {MovieGenre} films",
+                        "do i have some new {MovieGenre} films to watch",
+                        "do i have some new {MovieGenre} movies",
+                        "do i have some new {MovieGenre} movies to watch",
+                        "do we have a new {MovieGenre} film",
+                        "do we have a new {MovieGenre} film to watch",
+                        "do we have a new {MovieGenre} movie",
+                        "do we have a new {MovieGenre} movie to watch",
+                        "do we have any new {MovieGenre} films",
+                        "do we have any new {MovieGenre} films to watch",
+                        "do we have any new {MovieGenre} movies",
+                        "do we have any new {MovieGenre} movies to watch",
+                        "do we have new {MovieGenre} films",
+                        "do we have new {MovieGenre} films to watch",
+                        "do we have new {MovieGenre} movies",
+                        "do we have new {MovieGenre} movies to watch",
+                        "do we have some new {MovieGenre} films",
+                        "do we have some new {MovieGenre} films to watch",
+                        "do we have some new {MovieGenre} movies",
+                        "do we have some new {MovieGenre} movies to watch",
+                        "if there are any new {MovieGenre} films",
+                        "if there are any new {MovieGenre} films to watch",
+                        "if there are any new {MovieGenre} movies",
+                        "if there are any new {MovieGenre} movies to watch",
+                        "if there are new films",
+                        "if there are new films to watch",
+                        "if there are new movies",
+                        "if there are new movies to watch",
+                        "if there are new {MovieGenre} films",
+                        "if there are new {MovieGenre} films to watch",
+                        "if there are new {MovieGenre} movies",
+                        "if there are new {MovieGenre} movies to watch",
+                        "if there are some new {MovieGenre} films",
+                        "if there are some new {MovieGenre} films to watch",
+                        "if there are some new {MovieGenre} movies",
+                        "if there are some new {MovieGenre} movies to watch",
+                        "if there is a new film",
+                        "if there is a new film to watch",
+                        "if there is a new movie",
+                        "if there is a new movie to watch",
+                        "if there is a new {MovieGenre} film",
+                        "if there is a new {MovieGenre} film to watch",
+                        "if there is a new {MovieGenre} movie",
+                        "if there is a new {MovieGenre} movie to watch",
+                        "is there a new film",
+                        "is there a new film to watch",
+                        "is there a new movie",
+                        "is there a new movie to watch",
+                        "is there a new {MovieGenre} film",
+                        "is there a new {MovieGenre} film to watch",
+                        "is there a new {MovieGenre} movie",
+                        "is there a new {MovieGenre} movie to watch",
+                        "what new films are there",
+                        "what new films are there to watch",
+                        "what new films do i have",
+                        "what new films do i have to watch",
+                        "what new movies are there",
+                        "what new movies are there to watch",
+                        "what new movies do i have",
+                        "what new movies do i have to watch",
+                        "what new {MovieGenre} films are there",
+                        "what new {MovieGenre} films do i have",
+                        "what new {MovieGenre} films do we have",
+                        "what new {MovieGenre} films do you have",
+                        "what new {MovieGenre} films i have",
+                        "what new {MovieGenre} films we have",
+                        "what new {MovieGenre} films you have",
+                        "what new {MovieGenre} movies are there",
+                        "what new {MovieGenre} movies do i have",
+                        "what new {MovieGenre} movies do we have",
+                        "what new {MovieGenre} movies do you have",
+                        "what new {MovieGenre} movies i have",
+                        "what new {MovieGenre} movies we have",
+                        "what new {MovieGenre} movies you have",
+                        "what {MovieGenre} films are there",
+                        "what {MovieGenre} films do i have",
+                        "what {MovieGenre} films do we have",
+                        "what {MovieGenre} films do you have",
+                        "what {MovieGenre} films i have",
+                        "what {MovieGenre} films we have",
+                        "what {MovieGenre} films you have",
+                        "what {MovieGenre} movies are there",
+                        "what {MovieGenre} movies do i have",
+                        "what {MovieGenre} movies do we have",
+                        "what {MovieGenre} movies do you have",
+                        "what {MovieGenre} movies i have",
+                        "what {MovieGenre} movies we have",
+                        "what {MovieGenre} movies you have"
+                    ]
+                },
+                {
+                    "name": "WhatNewShows",
+                    "slots": [],
+                    "samples": [
+                        "are there new shows",
+                        "are there new shows to watch",
+                        "do i have a new show",
+                        "do i have a new show to watch",
+                        "do i have new shows",
+                        "do i have new shows to watch",
+                        "if there are new shows",
+                        "if there are new shows to watch",
+                        "if there is a new show",
+                        "if there is a new show to watch",
+                        "is there a new show",
+                        "is there a new show to watch",
+                        "what new shows are there",
+                        "what new shows are there to watch",
+                        "what new shows do i have",
+                        "what new shows do i have to watch"
+                    ]
+                },
+                {
+                    "name": "WhatNewEpisodes",
+                    "slots": [
+                        {
+                            "name": "Show",
+                            "type": "SHOWS"
+                        }
+                    ],
+                    "samples": [
+                        "if there are any episodes of {Show}",
+                        "if there are any new episodes of {Show}",
+                        "if there is a new episode of {Show}",
+                        "if there is an episode of {Show}",
+                        "if we have a new episode of {Show}",
+                        "if we have an episode of {Show}",
+                        "if we have any episodes of {Show}",
+                        "if we have any new episodes of {Show}"
+                    ]
+                },
+                {
+                    "name": "CleanVideo",
+                    "slots": [],
+                    "samples": [
+                        "clean library",
+                        "clean video library"
+                    ]
+                },
+                {
+                    "name": "UpdateVideo",
+                    "slots": [],
+                    "samples": [
+                        "update library",
+                        "update video library"
+                    ]
+                },
+                {
+                    "name": "CleanAudio",
+                    "slots": [],
+                    "samples": [
+                        "clean audio library",
+                        "clean music library"
+                    ]
+                },
+                {
+                    "name": "UpdateAudio",
+                    "slots": [],
+                    "samples": [
+                        "update audio library",
+                        "update music library"
+                    ]
+                },
                 {
                     "name": "PlayerSeekForward",
                     "slots": [
@@ -241,6 +1012,67 @@
                         "play {Movie}"
                     ]
                 },
+{
+                    "name": "ShuffleMedia",
+                    "slots": [
+                        {
+                            "name": "Show",
+                            "type": "SHOWS"
+                        }
+                    ],
+                    "samples": [
+                        "shuffle {Show}"
+                    ]
+                },
+                {
+                    "name": "WhatAlbums",
+                    "slots": [
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        }
+                    ],
+                    "samples": [
+                        "what albums do i have by {Artist}",
+                        "what albums do we have by {Artist}",
+                        "what albums do you have by {Artist}",
+                        "what albums i have by {Artist}",
+                        "what albums we have by {Artist}",
+                        "what albums you have by {Artist}"
+                    ]
+                },
+                {
+                    "name": "ListenToAudio",
+                    "slots": [
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        }
+                    ],
+                    "samples": [
+                        "listen to {Artist}"
+                    ]
+                },
+                {
+                    "name": "ListenToGenre",
+                    "slots": [
+                        {
+                            "name": "MusicGenre",
+                            "type": "MUSICGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "listen to {MusicGenre} genre",
+                        "listen to {MusicGenre} music",
+                        "listen to {MusicGenre} songs",
+                        "play {MusicGenre} genre",
+                        "play {MusicGenre} music",
+                        "play {MusicGenre} songs",
+                        "shuffle {MusicGenre} genre",
+                        "shuffle {MusicGenre} music",
+                        "shuffle {MusicGenre} songs"
+                    ]
+                },
                 {
                     "name": "ListenToArtist",
                     "slots": [
@@ -266,6 +1098,25 @@
                         "shuffle music by {Artist}",
                         "shuffle {MusicGenre} artist {Artist}",
                         "shuffle {MusicGenre} music by {Artist}"
+                    ]
+                },
+								{
+                    "name": "ListenToLatestAlbum",
+                    "slots": [
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        }
+                    ],
+                    "samples": [
+                        "listen to latest album by {Artist}",
+                        "listen to newest album by {Artist}",
+                        "listen to the latest album by {Artist}",
+                        "listen to the newest album by {Artist}",
+                        "play latest album by {Artist}",
+                        "play newest album by {Artist}",
+                        "play the latest album by {Artist}",
+                        "play the newest album by {Artist}"
                     ]
                 },
                 {
@@ -351,6 +1202,285 @@
                         "play {Song} by {Artist}"
                     ]
                 },
+								{
+                    "name": "ListenToAudioPlaylist",
+                    "slots": [
+                        {
+                            "name": "AudioPlaylist",
+                            "type": "MUSICPLAYLISTS"
+                        }
+                    ],
+                    "samples": [
+                        "listen to audio playlist {AudioPlaylist}",
+                        "listen to music playlist {AudioPlaylist}",
+                        "listen to playlist {AudioPlaylist}",
+                        "listen to song playlist {AudioPlaylist}",
+                        "listen to the audio playlist {AudioPlaylist}",
+                        "listen to the music playlist {AudioPlaylist}",
+                        "listen to the playlist {AudioPlaylist}",
+                        "listen to the song playlist {AudioPlaylist}",
+                        "listen to the {AudioPlaylist} audio playlist",
+                        "listen to the {AudioPlaylist} music playlist",
+                        "listen to the {AudioPlaylist} song playlist",
+                        "listen to {AudioPlaylist} audio playlist",
+                        "listen to {AudioPlaylist} music playlist",
+                        "listen to {AudioPlaylist} playlist",
+                        "listen to {AudioPlaylist} song playlist",
+                        "play audio playlist {AudioPlaylist}",
+                        "play music playlist {AudioPlaylist}",
+                        "play song playlist {AudioPlaylist}",
+                        "play the audio playlist {AudioPlaylist}",
+                        "play the music playlist {AudioPlaylist}",
+                        "play the song playlist {AudioPlaylist}",
+                        "play the {AudioPlaylist} audio playlist",
+                        "play the {AudioPlaylist} music playlist",
+                        "play the {AudioPlaylist} song playlist",
+                        "play {AudioPlaylist} audio playlist",
+                        "play {AudioPlaylist} music playlist",
+                        "play {AudioPlaylist} song playlist"
+                    ]
+                },
+                {
+                    "name": "ShuffleLatestAlbum",
+                    "slots": [
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        }
+                    ],
+                    "samples": [
+                        "shuffle latest album by {Artist}",
+                        "shuffle newest album by {Artist}",
+                        "shuffle the latest album by {Artist}",
+                        "shuffle the newest album by {Artist}"
+                    ]
+                },
+                {
+                    "name": "ShuffleAlbum",
+                    "slots": [
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        },
+                        {
+                            "name": "Album",
+                            "type": "MUSICALBUMS"
+                        }
+                    ],
+                    "samples": [
+                        "shuffle album {Album}",
+                        "shuffle album {Album} by {Artist}",
+                        "shuffle the album {Album}",
+                        "shuffle the album {Album} by {Artist}",
+                        "shuffle {Album} by {Artist}"
+                    ]
+                },
+                {
+                    "name": "ShuffleAudioPlaylist",
+                    "slots": [
+                        {
+                            "name": "AudioPlaylist",
+                            "type": "MUSICPLAYLISTS"
+                        }
+                    ],
+                    "samples": [
+                        "shuffle audio playlist {AudioPlaylist}",
+                        "shuffle music playlist {AudioPlaylist}",
+                        "shuffle song playlist {AudioPlaylist}",
+                        "shuffle the audio playlist {AudioPlaylist}",
+                        "shuffle the music playlist {AudioPlaylist}",
+                        "shuffle the song playlist {AudioPlaylist}",
+                        "shuffle {AudioPlaylist} audio playlist",
+                        "shuffle {AudioPlaylist} music playlist",
+                        "shuffle {AudioPlaylist} song playlist"
+                    ]
+                },
+                {
+                    "name": "ListenToAudioPlaylistRecent",
+                    "slots": [],
+                    "samples": [
+                        "listen to latest albums",
+                        "listen to latest audio",
+                        "listen to latest music",
+                        "listen to latest songs",
+                        "listen to newest albums",
+                        "listen to newest audio",
+                        "listen to newest music",
+                        "listen to newest songs",
+                        "listen to recent albums",
+                        "listen to recent audio",
+                        "listen to recent music",
+                        "listen to recent songs",
+                        "listen to recently added albums",
+                        "listen to recently added audio",
+                        "listen to recently added music",
+                        "listen to recently added songs",
+                        "play latest albums",
+                        "play latest audio",
+                        "play latest music",
+                        "play latest songs",
+                        "play newest albums",
+                        "play newest audio",
+                        "play newest music",
+                        "play newest songs",
+                        "play recent albums",
+                        "play recent audio",
+                        "play recent music",
+                        "play recent songs",
+                        "play recently added albums",
+                        "play recently added audio",
+                        "play recently added music",
+                        "play recently added songs",
+                        "shuffle latest albums",
+                        "shuffle latest audio",
+                        "shuffle latest music",
+                        "shuffle latest songs",
+                        "shuffle newest albums",
+                        "shuffle newest audio",
+                        "shuffle newest music",
+                        "shuffle newest songs",
+                        "shuffle recent albums",
+                        "shuffle recent audio",
+                        "shuffle recent music",
+                        "shuffle recent songs",
+                        "shuffle recently added albums",
+                        "shuffle recently added audio",
+                        "shuffle recently added music",
+                        "shuffle recently added songs"
+                    ]
+                },
+                {
+                    "name": "WatchEpisode",
+                    "slots": [
+                        {
+                            "name": "Show",
+                            "type": "SHOWS"
+                        },
+                        {
+                            "name": "Episode",
+                            "type": "AMAZON.NUMBER"
+                        },
+                        {
+                            "name": "Season",
+                            "type": "AMAZON.NUMBER"
+                        }
+                    ],
+                    "samples": [
+                        "play episode {Episode} season {Season} of {Show}",
+                        "play episode {Episode} series {Season} of {Show}",
+                        "play season {Season} episode {Episode} of {Show}",
+                        "play series {Season} episode {Episode} of {Show}",
+                        "play {Show} episode {Episode} season {Season}",
+                        "play {Show} episode {Episode} series {Season}",
+                        "play {Show} season {Season} episode {Episode}",
+                        "play {Show} series {Season} episode {Episode}",
+                        "watch episode {Episode} season {Season} of {Show}",
+                        "watch episode {Episode} series {Season} of {Show}",
+                        "watch season {Season} episode {Episode} of {Show}",
+                        "watch series {Season} episode {Episode} of {Show}",
+                        "watch {Show} episode {Episode} season {Season}",
+                        "watch {Show} episode {Episode} series {Season}",
+                        "watch {Show} season {Season} episode {Episode}",
+                        "watch {Show} series {Season} episode {Episode}"
+                    ]
+                },
+                {
+                    "name": "WatchRandomEpisode",
+                    "slots": [
+                        {
+                            "name": "Show",
+                            "type": "SHOWS"
+                        }
+                    ],
+                    "samples": [
+                        "play a random episode of {Show}",
+                        "play a random {Show} episode",
+                        "play a {Show} episode",
+                        "play an episode of {Show}",
+                        "play an {Show} episode",
+                        "watch a random episode of {Show}",
+                        "watch a random {Show} episode",
+                        "watch a {Show} episode",
+                        "watch an episode of {Show}",
+                        "watch an {Show} episode"
+                    ]
+                },
+                {
+                    "name": "WatchRandomShow",
+                    "slots": [
+                        {
+                            "name": "ShowGenre",
+                            "type": "SHOWGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "play a random show",
+                        "play a random t. v. show",
+                        "play a random {ShowGenre} show",
+                        "play a random {ShowGenre} t. v. show",
+                        "play random show",
+                        "play random t. v. show",
+                        "play random {ShowGenre} show",
+                        "play random {ShowGenre} t. v. show",
+                        "watch a random show",
+                        "watch a random t. v. show",
+                        "watch a random {ShowGenre} show",
+                        "watch a random {ShowGenre} t. v. show",
+                        "watch random show",
+                        "watch random t. v. show",
+                        "watch random {ShowGenre} show",
+                        "watch random {ShowGenre} t. v. show"
+                    ]
+                },
+                {
+                    "name": "WatchLatestEpisode",
+                    "slots": [
+                        {
+                            "name": "Show",
+                            "type": "SHOWS"
+                        }
+                    ],
+                    "samples": [
+                        "play latest episode of {Show}",
+                        "play newest episode of {Show}",
+                        "play the latest episode of {Show}",
+                        "play the newest episode of {Show}",
+                        "watch latest episode of {Show}",
+                        "watch newest episode of {Show}",
+                        "watch the latest episode of {Show}",
+                        "watch the newest episode of {Show}"
+                    ]
+                },
+                {
+                    "name": "WatchNextEpisode",
+                    "slots": [
+                        {
+                            "name": "Show",
+                            "type": "SHOWS"
+                        }
+                    ],
+                    "samples": [
+                        "play next episode of {Show}",
+                        "play the next episode of {Show}",
+                        "watch next episode of {Show}",
+                        "watch the next episode of {Show}"
+                    ]
+                },
+                {
+                    "name": "WatchLastShow",
+                    "slots": [],
+                    "samples": [
+                        "continue last show",
+                        "continue playing last show",
+                        "continue playing show",
+                        "continue playing the last show",
+                        "continue show",
+                        "continue the last show",
+                        "continue watching last show",
+                        "continue watching show",
+                        "continue watching the last show"
+                    ]
+                },
                 {
                     "name": "WatchVideo",
                     "slots": [
@@ -380,6 +1510,33 @@
                         "watch movie {Movie}",
                         "watch the film {Movie}",
                         "watch the movie {Movie}"
+                    ]
+                },
+                {
+                    "name": "WatchRandomMovie",
+                    "slots": [
+                        {
+                            "name": "MovieGenre",
+                            "type": "MOVIEGENRES"
+                        }
+                    ],
+                    "samples": [
+                        "play a random film",
+                        "play a random movie",
+                        "play a random {MovieGenre} film",
+                        "play a random {MovieGenre} movie",
+                        "play random film",
+                        "play random movie",
+                        "play random {MovieGenre} film",
+                        "play random {MovieGenre} movie",
+                        "watch a random film",
+                        "watch a random movie",
+                        "watch a random {MovieGenre} film",
+                        "watch a random {MovieGenre} movie",
+                        "watch random film",
+                        "watch random movie",
+                        "watch random {MovieGenre} film",
+                        "watch random {MovieGenre} movie"
                     ]
                 },
                 {
@@ -431,6 +1588,162 @@
                         "watch music video {MusicVideo} by {Artist}",
                         "watch the music video {MusicVideo}",
                         "watch the music video {MusicVideo} by {Artist}"
+                    ]
+                },
+                {
+                    "name": "WatchRandomMusicVideo",
+                    "slots": [
+                        {
+                            "name": "MusicVideoGenre",
+                            "type": "MUSICVIDEOGENRES"
+                        },
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        }
+                    ],
+                    "samples": [
+                        "play a random music video",
+                        "play a random music video by {Artist}",
+                        "play a random {MusicVideoGenre} music video",
+                        "play a random {MusicVideoGenre} music video by {Artist}",
+                        "play random music video",
+                        "play random music video by {Artist}",
+                        "play random {MusicVideoGenre} music video",
+                        "play random {MusicVideoGenre} music video by {Artist}",
+                        "watch a random music video",
+                        "watch a random music video by {Artist}",
+                        "watch a random {MusicVideoGenre} music video",
+                        "watch a random {MusicVideoGenre} music video by {Artist}",
+                        "watch random music video",
+                        "watch random music video by {Artist}",
+                        "watch random {MusicVideoGenre} music video",
+                        "watch random {MusicVideoGenre} music video by {Artist}"
+                    ]
+                },
+                {
+                    "name": "WatchVideoPlaylist",
+                    "slots": [
+                        {
+                            "name": "VideoPlaylist",
+                            "type": "VIDEOPLAYLISTS"
+                        }
+                    ],
+                    "samples": [
+                        "play movie playlist {VideoPlaylist}",
+                        "play show playlist {VideoPlaylist}",
+                        "play the movie playlist {VideoPlaylist}",
+                        "play the show playlist {VideoPlaylist}",
+                        "play the video playlist {VideoPlaylist}",
+                        "play video playlist {VideoPlaylist}",
+                        "play {VideoPlaylist} movie playlist",
+                        "play {VideoPlaylist} show playlist",
+                        "play {VideoPlaylist} video playlist",
+                        "watch movie playlist {VideoPlaylist}",
+                        "watch playlist {VideoPlaylist}",
+                        "watch show playlist {VideoPlaylist}",
+                        "watch the movie playlist {VideoPlaylist}",
+                        "watch the playlist {VideoPlaylist}",
+                        "watch the show playlist {VideoPlaylist}",
+                        "watch the video playlist {VideoPlaylist}",
+                        "watch video playlist {VideoPlaylist}",
+                        "watch {VideoPlaylist} movie playlist",
+                        "watch {VideoPlaylist} playlist",
+                        "watch {VideoPlaylist} show playlist",
+                        "watch {VideoPlaylist} video playlist"
+                    ]
+                },
+                {
+                    "name": "ShuffleMusicVideos",
+                    "slots": [
+                        {
+                            "name": "MusicVideoGenre",
+                            "type": "MUSICVIDEOGENRES"
+                        },
+                        {
+                            "name": "Artist",
+                            "type": "MUSICARTISTS"
+                        }
+                    ],
+                    "samples": [
+                        "play all music videos",
+                        "play all music videos by {Artist}",
+                        "play all {MusicVideoGenre} music videos",
+                        "play all {MusicVideoGenre} music videos by {Artist}",
+                        "play music videos",
+                        "play music videos by {Artist}",
+                        "play {MusicVideoGenre} music videos",
+                        "play {MusicVideoGenre} music videos by {Artist}",
+                        "shuffle all music videos",
+                        "shuffle all music videos by {Artist}",
+                        "shuffle all {MusicVideoGenre} music videos",
+                        "shuffle all {MusicVideoGenre} music videos by {Artist}",
+                        "shuffle music videos",
+                        "shuffle music videos by {Artist}",
+                        "shuffle {MusicVideoGenre} music videos",
+                        "shuffle {MusicVideoGenre} music videos by {Artist}",
+                        "watch all music videos",
+                        "watch all music videos by {Artist}",
+                        "watch all {MusicVideoGenre} music videos",
+                        "watch all {MusicVideoGenre} music videos by {Artist}",
+                        "watch music videos",
+                        "watch music videos by {Artist}",
+                        "watch {MusicVideoGenre} music videos",
+                        "watch {MusicVideoGenre} music videos by {Artist}"
+                    ]
+                },
+                {
+                    "name": "ShuffleShow",
+                    "slots": [
+                        {
+                            "name": "Show",
+                            "type": "SHOWS"
+                        }
+                    ],
+                    "samples": [
+                        "shuffle all episodes of {Show}",
+                        "shuffle episodes of {Show}"
+                    ]
+                },
+                {
+                    "name": "ShuffleVideoPlaylist",
+                    "slots": [
+                        {
+                            "name": "VideoPlaylist",
+                            "type": "VIDEOPLAYLISTS"
+                        }
+                    ],
+                    "samples": [
+                        "shuffle movie playlist {VideoPlaylist}",
+                        "shuffle show playlist {VideoPlaylist}",
+                        "shuffle the movie playlist {VideoPlaylist}",
+                        "shuffle the show playlist {VideoPlaylist}",
+                        "shuffle the video playlist {VideoPlaylist}",
+                        "shuffle video playlist {VideoPlaylist}",
+                        "shuffle {VideoPlaylist} movie playlist",
+                        "shuffle {VideoPlaylist} show playlist",
+                        "shuffle {VideoPlaylist} video playlist"
+                    ]
+                },
+                {
+                    "name": "ShufflePlaylist",
+                    "slots": [
+                        {
+                            "name": "AudioPlaylist",
+                            "type": "MUSICPLAYLISTS"
+                        },
+                        {
+                            "name": "VideoPlaylist",
+                            "type": "VIDEOPLAYLISTS"
+                        }
+                    ],
+                    "samples": [
+                        "shuffle playlist {AudioPlaylist}",
+                        "shuffle playlist {VideoPlaylist}",
+                        "shuffle the playlist {AudioPlaylist}",
+                        "shuffle the playlist {VideoPlaylist}",
+                        "shuffle {AudioPlaylist} playlist",
+                        "shuffle {VideoPlaylist} playlist"
                     ]
                 },
                 {
@@ -670,6 +1983,296 @@
                     ]
                 },
                 {
+                    "name": "ViewVideoPlaylist",
+                    "slots": [
+                        {
+                            "name": "VideoPlaylist",
+                            "type": "VIDEOPLAYLISTS"
+                        }
+                    ],
+                    "samples": [
+                        "go to movie playlist {VideoPlaylist}",
+                        "go to show playlist {VideoPlaylist}",
+                        "go to the movie playlist {VideoPlaylist}",
+                        "go to the show playlist {VideoPlaylist}",
+                        "go to the video playlist {VideoPlaylist}",
+                        "go to video playlist {VideoPlaylist}",
+                        "go to {VideoPlaylist} movie playlist",
+                        "go to {VideoPlaylist} show playlist",
+                        "go to {VideoPlaylist} video playlist",
+                        "open movie playlist {VideoPlaylist}",
+                        "open show playlist {VideoPlaylist}",
+                        "open the movie playlist {VideoPlaylist}",
+                        "open the show playlist {VideoPlaylist}",
+                        "open the video playlist {VideoPlaylist}",
+                        "open video playlist {VideoPlaylist}",
+                        "open {VideoPlaylist} movie playlist",
+                        "open {VideoPlaylist} show playlist",
+                        "open {VideoPlaylist} video playlist",
+                        "show movie playlist {VideoPlaylist}",
+                        "show show playlist {VideoPlaylist}",
+                        "show the movie playlist {VideoPlaylist}",
+                        "show the show playlist {VideoPlaylist}",
+                        "show the video playlist {VideoPlaylist}",
+                        "show video playlist {VideoPlaylist}",
+                        "show {VideoPlaylist} movie playlist",
+                        "show {VideoPlaylist} show playlist",
+                        "show {VideoPlaylist} video playlist"
+                    ]
+                },
+                {
+                    "name": "ViewMoviePlaylistRecent",
+                    "slots": [],
+                    "samples": [
+                        "go to latest movies",
+                        "go to latest videos",
+                        "go to newest movies",
+                        "go to newest videos",
+                        "go to recent movies",
+                        "go to recent videos",
+                        "go to recently added movies",
+                        "go to recently added videos",
+                        "open latest movies",
+                        "open latest videos",
+                        "open newest movies",
+                        "open newest videos",
+                        "open recent movies",
+                        "open recent videos",
+                        "open recently added movies",
+                        "open recently added videos",
+                        "show latest movies",
+                        "show latest videos",
+                        "show newest movies",
+                        "show newest videos",
+                        "show recent movies",
+                        "show recent videos",
+                        "show recently added movies",
+                        "show recently added videos"
+                    ]
+                },
+                {
+                    "name": "ViewEpisodePlaylistRecent",
+                    "slots": [],
+                    "samples": [
+                        "go to latest episodes",
+                        "go to latest shows",
+                        "go to latest t. v. shows",
+                        "go to newest episodes",
+                        "go to newest shows",
+                        "go to newest t. v. shows",
+                        "go to recent episodes",
+                        "go to recent shows",
+                        "go to recent t. v. shows",
+                        "go to recently added episodes",
+                        "go to recently added shows",
+                        "go to recently added t. v. shows",
+                        "open latest episodes",
+                        "open latest shows",
+                        "open latest t. v. shows",
+                        "open newest episodes",
+                        "open newest shows",
+                        "open newest t. v. shows",
+                        "open recent episodes",
+                        "open recent shows",
+                        "open recent t. v. shows",
+                        "open recently added episodes",
+                        "open recently added shows",
+                        "open recently added t. v. shows",
+                        "show latest episodes",
+                        "show latest shows",
+                        "show latest t. v. shows",
+                        "show newest episodes",
+                        "show newest shows",
+                        "show newest t. v. shows",
+                        "show recent episodes",
+                        "show recent shows",
+                        "show recent t. v. shows",
+                        "show recently added episodes",
+                        "show recently added shows",
+                        "show recently added t. v. shows"
+                    ]
+                },
+                {
+                    "name": "ViewMusicVideoPlaylistRecent",
+                    "slots": [],
+                    "samples": [
+                        "go to latest music videos",
+                        "go to newest music videos",
+                        "go to recent music videos",
+                        "go to recently added music videos",
+                        "open latest music videos",
+                        "open newest music videos",
+                        "open recent music videos",
+                        "open recently added music videos",
+                        "show latest music videos",
+                        "show newest music videos",
+                        "show recent music videos",
+                        "show recently added music videos"
+                    ]
+                },
+                {
+                    "name": "ViewAudioPlaylist",
+                    "slots": [
+                        {
+                            "name": "AudioPlaylist",
+                            "type": "MUSICPLAYLISTS"
+                        }
+                    ],
+                    "samples": [
+                        "go to audio playlist {AudioPlaylist}",
+                        "go to music playlist {AudioPlaylist}",
+                        "go to song playlist {AudioPlaylist}",
+                        "go to the audio playlist {AudioPlaylist}",
+                        "go to the music playlist {AudioPlaylist}",
+                        "go to the song playlist {AudioPlaylist}",
+                        "go to the {AudioPlaylist} audio playlist",
+                        "go to the {AudioPlaylist} music playlist",
+                        "go to the {AudioPlaylist} song playlist",
+                        "go to {AudioPlaylist} audio playlist",
+                        "go to {AudioPlaylist} music playlist",
+                        "go to {AudioPlaylist} song playlist",
+                        "open audio playlist {AudioPlaylist}",
+                        "open music playlist {AudioPlaylist}",
+                        "open song playlist {AudioPlaylist}",
+                        "open the audio playlist {AudioPlaylist}",
+                        "open the music playlist {AudioPlaylist}",
+                        "open the song playlist {AudioPlaylist}",
+                        "open the {AudioPlaylist} audio playlist",
+                        "open the {AudioPlaylist} music playlist",
+                        "open the {AudioPlaylist} song playlist",
+                        "open {AudioPlaylist} audio playlist",
+                        "open {AudioPlaylist} music playlist",
+                        "open {AudioPlaylist} song playlist",
+                        "show audio playlist {AudioPlaylist}",
+                        "show music playlist {AudioPlaylist}",
+                        "show song playlist {AudioPlaylist}",
+                        "show the audio playlist {AudioPlaylist}",
+                        "show the music playlist {AudioPlaylist}",
+                        "show the song playlist {AudioPlaylist}",
+                        "show the {AudioPlaylist} audio playlist",
+                        "show the {AudioPlaylist} music playlist",
+                        "show the {AudioPlaylist} song playlist",
+                        "show {AudioPlaylist} audio playlist",
+                        "show {AudioPlaylist} music playlist",
+                        "show {AudioPlaylist} song playlist"
+                    ]
+                },
+                {
+                    "name": "ViewAudioPlaylistRecent",
+                    "slots": [],
+                    "samples": [
+                        "go to latest albums",
+                        "go to latest audio",
+                        "go to latest music",
+                        "go to latest songs",
+                        "go to newest albums",
+                        "go to newest audio",
+                        "go to newest music",
+                        "go to newest songs",
+                        "go to recent albums",
+                        "go to recent audio",
+                        "go to recent music",
+                        "go to recent songs",
+                        "go to recently added albums",
+                        "go to recently added audio",
+                        "go to recently added music",
+                        "go to recently added songs",
+                        "open latest albums",
+                        "open latest audio",
+                        "open latest music",
+                        "open latest songs",
+                        "open newest albums",
+                        "open newest audio",
+                        "open newest music",
+                        "open newest songs",
+                        "open recent albums",
+                        "open recent audio",
+                        "open recent music",
+                        "open recent songs",
+                        "open recently added albums",
+                        "open recently added audio",
+                        "open recently added music",
+                        "open recently added songs",
+                        "show latest albums",
+                        "show latest audio",
+                        "show latest music",
+                        "show latest songs",
+                        "show newest albums",
+                        "show newest audio",
+                        "show newest music",
+                        "show newest songs",
+                        "show recent albums",
+                        "show recent audio",
+                        "show recent music",
+                        "show recent songs",
+                        "show recently added albums",
+                        "show recently added audio",
+                        "show recently added music",
+                        "show recently added songs"
+                    ]
+                },
+                {
+                    "name": "ViewPlaylist",
+                    "slots": [
+                        {
+                            "name": "AudioPlaylist",
+                            "type": "MUSICPLAYLISTS"
+                        },
+                        {
+                            "name": "VideoPlaylist",
+                            "type": "VIDEOPLAYLISTS"
+                        }
+                    ],
+                    "samples": [
+                        "go to playlist {AudioPlaylist}",
+                        "go to playlist {VideoPlaylist}",
+                        "go to the playlist {AudioPlaylist}",
+                        "go to the playlist {VideoPlaylist}",
+                        "go to {AudioPlaylist} playlist",
+                        "go to {VideoPlaylist} playlist",
+                        "open playlist {AudioPlaylist}",
+                        "open playlist {VideoPlaylist}",
+                        "open the playlist {AudioPlaylist}",
+                        "open the playlist {VideoPlaylist}",
+                        "open {AudioPlaylist} playlist",
+                        "open {VideoPlaylist} playlist",
+                        "show playlist {AudioPlaylist}",
+                        "show playlist {VideoPlaylist}",
+                        "show the playlist {AudioPlaylist}",
+                        "show the playlist {VideoPlaylist}",
+                        "show {AudioPlaylist} playlist",
+                        "show {VideoPlaylist} playlist"
+                    ]
+                },
+                {
+                    "name": "Fullscreen",
+                    "slots": [],
+                    "samples": [
+                        "fullscreen",
+                        "toggle fullscreen",
+                        "toggle visualizer",
+                        "visualizer"
+                    ]
+                },
+                {
+                    "name": "StereoscopicMode",
+                    "slots": [],
+                    "samples": [
+                        "toggle stereoscopic mode",
+                        "toggle three d. mode"
+                    ]
+                },
+                {
+                    "name": "AudioPassthrough",
+                    "slots": [],
+                    "samples": [
+                        "toggle audio passthrough",
+                        "toggle digital audio",
+                        "toggle digital passthrough",
+                        "toggle passthrough audio"
+                    ]
+                },
+                {
                     "name": "Mute",
                     "slots": [],
                     "samples": [
@@ -728,6 +2331,306 @@
                     ]
                 },
                 {
+                    "name": "SubtitlesOn",
+                    "slots": [],
+                    "samples": [
+                        "enable subtitles",
+                        "turn on subtitles"
+                    ]
+                },
+                {
+                    "name": "SubtitlesOff",
+                    "slots": [],
+                    "samples": [
+                        "disable subtitles",
+                        "turn off subtitles"
+                    ]
+                },
+                {
+                    "name": "SubtitlesNext",
+                    "slots": [],
+                    "samples": [
+                        "next subtitle language",
+                        "next subtitles",
+                        "switch subtitle language",
+                        "switch subtitles"
+                    ]
+                },
+                {
+                    "name": "SubtitlesPrevious",
+                    "slots": [],
+                    "samples": [
+                        "previous subtitle language",
+                        "previous subtitles"
+                    ]
+                },
+                {
+                    "name": "SubtitlesDownload",
+                    "slots": [],
+                    "samples": [
+                        "download subtitles"
+                    ]
+                },
+                {
+                    "name": "AudioStreamNext",
+                    "slots": [],
+                    "samples": [
+                        "next audio",
+                        "next audio language",
+                        "next audio stream",
+                        "next language",
+                        "switch audio",
+                        "switch audio language",
+                        "switch audio stream",
+                        "switch language"
+                    ]
+                },
+                {
+                    "name": "AudioStreamPrevious",
+                    "slots": [],
+                    "samples": [
+                        "previous audio",
+                        "previous audio language",
+                        "previous audio stream",
+                        "previous language"
+                    ]
+                },
+                {
+                    "name": "PlayerMoveUp",
+                    "slots": [],
+                    "samples": [
+                        "move up",
+                        "pan up",
+                        "track up"
+                    ]
+                },
+                {
+                    "name": "PlayerMoveDown",
+                    "slots": [],
+                    "samples": [
+                        "move down",
+                        "pan down",
+                        "track down"
+                    ]
+                },
+                {
+                    "name": "PlayerMoveLeft",
+                    "slots": [],
+                    "samples": [
+                        "move left",
+                        "pan left",
+                        "track left"
+                    ]
+                },
+                {
+                    "name": "PlayerMoveRight",
+                    "slots": [],
+                    "samples": [
+                        "move right",
+                        "pan right",
+                        "track right"
+                    ]
+                },
+                {
+                    "name": "PlayerRotateClockwise",
+                    "slots": [],
+                    "samples": [
+                        "rotate",
+                        "rotate clockwise",
+                        "rotate ninety degrees"
+                    ]
+                },
+                {
+                    "name": "PlayerRotateCounterClockwise",
+                    "slots": [],
+                    "samples": [
+                        "rotate counter clockwise"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomHold",
+                    "slots": [],
+                    "samples": [
+                        "give me a hard copy right there",
+                        "give me a hard copy there",
+                        "hold",
+                        "hold it",
+                        "hold it right there",
+                        "hold it there",
+                        "hold right there",
+                        "hold there"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomIn",
+                    "slots": [],
+                    "samples": [
+                        "enhance",
+                        "move in",
+                        "zoom in"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomInMoveUp",
+                    "slots": [],
+                    "samples": [
+                        "enhance and move up",
+                        "enhance and pan up",
+                        "enhance and track up",
+                        "move in and move up",
+                        "move in and pan up",
+                        "move in and track up",
+                        "zoom in and move up",
+                        "zoom in and pan up",
+                        "zoom in and track up"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomInMoveDown",
+                    "slots": [],
+                    "samples": [
+                        "enhance and move down",
+                        "enhance and pan down",
+                        "enhance and track down",
+                        "move in and move down",
+                        "move in and pan down",
+                        "move in and track down",
+                        "zoom in and move down",
+                        "zoom in and pan down",
+                        "zoom in and track down"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomInMoveLeft",
+                    "slots": [],
+                    "samples": [
+                        "enhance and move left",
+                        "enhance and pan left",
+                        "enhance and track left",
+                        "move in and move left",
+                        "move in and pan left",
+                        "move in and track left",
+                        "zoom in and move left",
+                        "zoom in and pan left",
+                        "zoom in and track left"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomInMoveRight",
+                    "slots": [],
+                    "samples": [
+                        "enhance and move right",
+                        "enhance and pan right",
+                        "enhance and track right",
+                        "move in and move right",
+                        "move in and pan right",
+                        "move in and track right",
+                        "zoom in and move right",
+                        "zoom in and pan right",
+                        "zoom in and track right"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomOut",
+                    "slots": [],
+                    "samples": [
+                        "move out",
+                        "pull back",
+                        "pull out",
+                        "zoom out"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomOutMoveUp",
+                    "slots": [],
+                    "samples": [
+                        "move out and move up",
+                        "move out and pan up",
+                        "move out and track up",
+                        "pull back and move up",
+                        "pull back and pan up",
+                        "pull back and track up",
+                        "pull out and move up",
+                        "pull out and pan up",
+                        "pull out and track up",
+                        "zoom out and move up",
+                        "zoom out and pan up",
+                        "zoom out and track up"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomOutMoveDown",
+                    "slots": [],
+                    "samples": [
+                        "move out and move down",
+                        "move out and pan down",
+                        "move out and track down",
+                        "pull back and move down",
+                        "pull back and pan down",
+                        "pull back and track down",
+                        "pull out and move down",
+                        "pull out and pan down",
+                        "pull out and track down",
+                        "zoom out and move down",
+                        "zoom out and pan down",
+                        "zoom out and track down"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomOutMoveLeft",
+                    "slots": [],
+                    "samples": [
+                        "move out and move left",
+                        "move out and pan left",
+                        "move out and track left",
+                        "pull back and move left",
+                        "pull back and pan left",
+                        "pull back and track left",
+                        "pull out and move left",
+                        "pull out and pan left",
+                        "pull out and track left",
+                        "zoom out and move left",
+                        "zoom out and pan left",
+                        "zoom out and track left"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomOutMoveRight",
+                    "slots": [],
+                    "samples": [
+                        "move out and move right",
+                        "move out and pan right",
+                        "move out and track right",
+                        "pull back and move right",
+                        "pull back and pan right",
+                        "pull back and track right",
+                        "pull out and move right",
+                        "pull out and pan right",
+                        "pull out and track right",
+                        "zoom out and move right",
+                        "zoom out and pan right",
+                        "zoom out and track right"
+                    ]
+                },
+                {
+                    "name": "PlayerZoomReset",
+                    "slots": [],
+                    "samples": [
+                        "normal zoom",
+                        "reset zoom"
+                    ]
+                },
+                {
+                    "name": "Hibernate",
+                    "slots": [],
+                    "samples": [
+                        "deep sleep",
+                        "deep sleep system",
+                        "hibernate",
+                        "hibernate system"
+                    ]
+                },
+                {
                     "name": "Reboot",
                     "slots": [],
                     "samples": [
@@ -741,6 +2644,52 @@
                     "samples": [
                         "shut down",
                         "shut down system"
+                    ]
+                },
+                {
+                    "name": "Suspend",
+                    "slots": [],
+                    "samples": [
+                        "go to sleep",
+                        "put system to sleep",
+                        "sleep",
+                        "sleep system",
+                        "suspend",
+                        "suspend system"
+                    ]
+                },
+                {
+                    "name": "EjectMedia",
+                    "slots": [],
+                    "samples": [
+                        "eject",
+                        "eject audio disc",
+                        "eject blu-ray",
+                        "eject blu-ray disc",
+                        "eject c. d.",
+                        "eject compact disc",
+                        "eject d. v. d.",
+                        "eject disc",
+                        "eject media",
+                        "eject the audio disc",
+                        "eject the blu-ray",
+                        "eject the blu-ray disc",
+                        "eject the c. d.",
+                        "eject the compact disc",
+                        "eject the d. v. d.",
+                        "eject the disc",
+                        "eject the media"
+                    ]
+                },
+                {
+                    "name": "PartyMode",
+                    "slots": [],
+                    "samples": [
+                        "listen to all music",
+                        "listen to random music",
+                        "play all music",
+                        "play random music",
+                        "shuffle all music"
                     ]
                 },
                 {
@@ -1002,35 +2951,35 @@
             "types": [
                 {
                     "name": "SHOWS",
-                      "values": [
-												{
+                   "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
-                 {
+                {
                     "name": "SHOWGENRES",
-                      "values": [
-												{
+                   "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
                 {
                     "name": "MOVIES",
-                      "values": [
-												{
+                    "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
-               {
+                {
                     "name": "MOVIEGENRES",
                     "values": [
                         {
@@ -1132,15 +3081,15 @@
                 },
                 {
                     "name": "MUSICVIDEOS",
-                      "values": [
-												{
+                   "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
-                 {
+                {
                     "name": "MUSICVIDEOGENRES",
                     "values": [
                         {
@@ -1152,75 +3101,75 @@
                 },
                 {
                     "name": "MUSICARTISTS",
-                    "values": [
-												{
+                 "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
                 {
                     "name": "MUSICALBUMS",
-                    "values": [
-												{
+                  "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
-                  {
+                {
                     "name": "MUSICSONGS",
-                     "values": [
-												{
+                  "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
-                 {
+                {
                     "name": "MUSICGENRES",
-                     "values": [
-												{
+                 "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
-                 {
+                {
                     "name": "ADDONS",
-                     "values": [
-												{
+                 "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
-                 {
+                {
                     "name": "CHANNELS",
-                    "values": [
-												{
+                  "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
-                  {
+                {
                     "name": "BROADCASTS",
-                     "values": [
-												{
+                  "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
-                 {
+                {
                     "name": "RADIOCHANNELS",
                     "values": [
                         {
@@ -1232,18 +3181,18 @@
                 },
                 {
                     "name": "RECORDCHANNEL",
-                     "values": [
-												{
-														"name": {
+                  "values": [
+                        {
+                            "name": {
                                 "value": "Empty"
                             }
                         }
-											]
+                    ]
                 },
-                 {
-                    "name": "RADIOCHANNELS",
-                    "values": [
-                       {
+                {
+                    "name": "RECORDBROADCAST",
+                  "values": [
+                        {
                             "name": {
                                 "value": "Empty"
                             }
