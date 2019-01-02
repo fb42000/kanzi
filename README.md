@@ -312,9 +312,9 @@ Select **Save Model** - get into the habit of using this on every item you chang
 
 ![Invocation Name](http://i.imgur.com/XHFZ6Wx.png)
 
-We should now have populated **INTENTS** with (67) items and **SLOT TYPES** with (18)
+We should now have populated **INTENTS** with (146) items and **SLOT TYPES** with (20)
 
-![Populated intents](http://i.imgur.com/j5KdPP6.png)
+![Populated intents](http://i.imgur.com/1vPsIKk.png)
 
 Now we need to populate the Slot Types to stop it complaining about errors (Slot types cannot be empty). This is where it gets personal though so a bit of work to do;
 
